@@ -3,8 +3,8 @@
   "files": [],
   "extends": ["@kurocado-studio/qa/web/tsconfig.qa"],
   "references": [
-    { "path": "apps/formkit-service"},
-    { "path": "domains/formkit-domain"},
+    { "path": "apps/formkit-service" },
+    { "path": "domains/formkit-domain" },
     { "path": "internal/config" }
   ],
   "compilerOptions": {
