@@ -10,7 +10,7 @@
     "commitlint": "pnpm exec commitlint --edit .git/COMMIT_EDITMSG",
     "dev": "turbo run dev --concurrency=20",
     "format": "prettier --write .",
-    "lint": "turbo run lint", 
+    "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "prepare": "husky install",
     "prettier:check": "prettier --check . --ignore-path .prettierignore && turbo run prettier:check",

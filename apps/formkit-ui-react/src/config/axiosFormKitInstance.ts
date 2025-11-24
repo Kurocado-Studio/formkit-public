@@ -4,7 +4,7 @@ const baseURL =
   // @ts-expect-error while we fix typings
   import.meta.env['VITE_NODE_ENV'] === 'local'
     ? 'http://localhost:3001'
-    : 'https://html-forms-service-staging.fly.dev';
+    : 'https://formkit.fly.dev';
 
 export const axiosFormKitInstance = axios.create({
   baseURL,
