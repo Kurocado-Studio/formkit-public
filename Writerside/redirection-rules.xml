@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
+<rules>
+    <!-- format is as follows
+    <rule id="<unique id>">
+        <accepts>page.html</accepts>
+    </rule>
+    -->
+    <rule id="4b8695d9">
+        <description>Created after removal of "Design System" from Platform</description>
+        <accepts>Design-System.html</accepts>
+    </rule>
+    <rule id="18c147ba">
+        <description>Created after removal of "Styleguide" from Platform</description>
+        <accepts>Styleguide.html</accepts>
+    </rule>
+    <rule id="68ca2857">
+        <description>Created after removal of "DevExp" from Platform</description>
+        <accepts>DevExp.html</accepts>
+    </rule>
+    <rule id="9978245">
+        <description>Created after removal of "DevOps" from Platform</description>
+        <accepts>DevOps.html</accepts>
+    </rule>
+    <rule id="5921e5cd">
+        <description>Created after removal of "IAM" from Platform</description>
+        <accepts>IAM.html</accepts>
+    </rule>
+    <rule id="50582db2">
+        <description>Created after removal of "QA" from Platform</description>
+        <accepts>QA.html</accepts>
+    </rule>
+    <rule id="79abfe0e">
+        <description>Created after removal of "Teams" from Platform</description>
+        <accepts>Teams.html</accepts>
+    </rule>
+    <rule id="7235fa0c">
+        <description>Created after removal of "Dependabot Templates" from Platform</description>
+        <accepts>Dependabot-Templates.html</accepts>
+    </rule>
+    <rule id="48398164">
+        <description>Created after removal of "Platform" from Platform</description>
+        <accepts>Platform.html</accepts>
+    </rule>
+    <rule id="43476290">
+        <description>Created after removal of "DevOps" from Platform</description>
+        <accepts>DevOps.html</accepts>
+    </rule>
+    <rule id="20572c3c">
+        <description>Created after removal of "Business Plan" from Platform</description>
+        <accepts>Business-Plan.html</accepts>
+    </rule>
+    <rule id="70035d08">
+        <description>Created after removal of "Typescript Platform" from Platform</description>
+        <accepts>starter-topic.html</accepts>
+    </rule>
+    <rule id="7df111d8">
+        <description>Created after removal of "Design System" from Platform</description>
+        <accepts>Design-System.html</accepts>
+    </rule>
+    <rule id="71bdebb4">
+        <description>Created after removal of "Guides" from Platform</description>
+        <accepts>Guides.html</accepts>
+    </rule>
+    <rule id="6678fe9c">
+        <description>Created after removal of "Commitlint" from Platform</description>
+        <accepts>How-To-Install-Commitlint.html</accepts>
+    </rule>
+    <rule id="38e1b622">
+        <description>Created after removal of "ESLint" from Platform</description>
+        <accepts>How-To-Install-ESLint.html</accepts>
+    </rule>
+    <rule id="6b97a651">
+        <description>Created after removal of "Prettier" from Platform</description>
+        <accepts>How-To-Install-Prettier.html</accepts>
+    </rule>
+    <rule id="3033a801">
+        <description>Created after removal of "Semantic Release" from Platform</description>
+        <accepts>How-To-Install-Semantic-Release.html</accepts>
+    </rule>
+    <rule id="2f9a9d92">
+        <description>Created after removal of "How To Install Vitest" from Platform</description>
+        <accepts>How-To-Install-Vitest.html</accepts>
+    </rule>
+    <rule id="3b8e05c3">
+        <description>Created after removal of "Engineering Styleguide" from Platform</description>
+        <accepts>Styleguide.html</accepts>
+    </rule>
+    <rule id="49636e08">
+        <description>Created after removal of "Templates" from Platform</description>
+        <accepts>Templates.html</accepts>
+    </rule>
+    <rule id="6a719d60">
+        <description>Created after removal of "Lint" from FormKit</description>
+        <accepts>Lint.html</accepts>
+    </rule>
+    <rule id="613a0759">
+        <description>Created after removal of "Release" from FormKit</description>
+        <accepts>Release.html</accepts>
+    </rule>
+    <rule id="6c9e25d0">
+        <description>Created after removal of "Document" from FormKit</description>
+        <accepts>Document.html</accepts>
+    </rule>
+    <rule id="1264206e">
+        <description>Created after removal of "Deploy" from FormKit</description>
+        <accepts>Deploy.html</accepts>
+    </rule>
+    <rule id="766e405b">
+        <description>Created after removal of "Test" from FormKit</description>
+        <accepts>Test.html</accepts>
+    </rule>
+    <rule id="54f3ab39">
+        <description>Created after removal of "CI/CD Workflows" from FormKit</description>
+        <accepts>CI-CD-Workflows.html</accepts>
+    </rule>
+    <rule id="196b68ce">
+        <description>Created after removal of "Auth0 by Okta module" from FormKit</description>
+        <accepts>Auth0-by-Okta.html</accepts>
+    </rule>
+    <rule id="33b4a270">
+        <description>Created after removal of "DevEX" from FormKit</description>
+        <accepts>DevExp.html</accepts>
+    </rule>
+    <rule id="3545fd5d">
+        <description>Created after removal of "IAM" from FormKit</description>
+        <accepts>IAM.html</accepts>
+    </rule>
+    <rule id="2cf5307a">
+        <description>Created after removal of "QA" from FormKit</description>
+        <accepts>QA.html</accepts>
+    </rule>
+    <rule id="73641a2f">
+        <description>Created after removal of "FormKit — Rethinking How Teams Manage Forms" from FormKit</description>
+        <accepts>Case-Study.html</accepts>
+    </rule>
+    <rule id="7bd3fe6b">
+        <description>Created after removal of "Problem Space" from FormKit</description>
+        <accepts>Problem-space.html</accepts>
+    </rule>
+    <rule id="7a49d62f">
+        <description>Created after removal of "Solution Space" from FormKit</description>
+        <accepts>Empty-MD-Topic.html</accepts>
+    </rule>
+    <rule id="781b7409">
+        <description>Created after removal of "FormKit — Rethinking How Teams Manage Forms" from FormKit</description>
+        <accepts>Empty-MD-Topic-fddf.html</accepts>
+    </rule>
+    <rule id="1829b060">
+        <description>Created after removal of "Empty XML Topic" from FormKit</description>
+        <accepts>Empty-XML-Topic.html</accepts>
+    </rule>
+</rules>

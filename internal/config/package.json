@@ -1,0 +1,47 @@
+{
+  "name": "@internal/config",
+  "version": "0.0.0-semantically-released",
+  "sideEffects": false,
+  "private": true,
+  "keywords": [],
+  "author": "@kurocado-studio",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tsconfig.web": "./dist/tsconfig.web.json",
+    "./qa/web/setup": "./dist/setup.web.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "internal:build": "pnpm install && rm -rf dist && tsup --dts",
+    "internal:dev": "rm -rf dist && tsup --watch --dts",
+    "internal:clean": "rm -rf .turbo node_modules dist",
+    "lint": "eslint --max-warnings=0 . --no-warn-ignored",
+    "lint:fix": "eslint --max-warnings=0 . --fix --no-warn-ignored",
+    "prettier:fix": "prettier --write . --ignore-path ../../.prettierignore",
+    "prettier:check": "prettier --check . --ignore-path ../../.prettierignore",
+    "typecheck": "tsc --noEmit --pretty"
+  },
+  "devDependencies": {
+    "@kurocado-studio/styleguide": "2.6.0-develop.17",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^24.2.0",
+    "copyfiles": "^2.4.1",
+    "semantic-release": "^24.2.7",
+    "semantic-release-monorepo": "^8.0.2",
+    "tsup": "^8.5.0",
+    "typescript": "5.1.6",
+    "vite": "5.2.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": [
+    "@kurocado-studio/qa/web/tsconfig.qa",
+    "@kurocado-studio/styleguide/typescript/tsconfig.react.json"
+  ],
+  "compilerOptions": {
+    "types": ["@types/react", "vitest/globals", "@testing-library/jest-dom"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "jsx": "preserve"
+  },
+  "include": [
+    "setup.web.ts",
+    "src",
+    "tailwind.config",
+    "test",
+    "vite.config.ts",
+    "tailwind.config.ts",
+    "vitest.config.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}
