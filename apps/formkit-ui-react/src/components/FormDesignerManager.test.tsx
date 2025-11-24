@@ -34,6 +34,13 @@ vi.mock('@kurocado-studio/react-utils', () => ({
   useWindowSize: vi.fn(),
 }));
 
+vi.mock('@kurocado-studio/axios-react', () => ({
+  useAxios: () => [
+    { resetState: vi.fn(), isLoading: false, error: undefined },
+    vi.fn(),
+  ],
+}));
+
 describe('FormDesignerManager', () => {
   let mockUseFormDesignerContext: ReturnType<
     typeof vi.fn<typeof useFormDesignerContext>

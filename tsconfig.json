@@ -2,11 +2,6 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "files": [],
   "extends": ["@kurocado-studio/qa/web/tsconfig.qa"],
-  "references": [
-    { "path": "domains/atelier-ui" },
-    { "path": "packages/atelier-ui-react" },
-    { "path": "packages/atelier-ui-vue" }
-  ],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
