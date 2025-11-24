@@ -9,17 +9,17 @@
     "domain:build": {
       "cache": false,
       "outputs": ["dist/**"],
-      "dependsOn": ["^domain:build"]
+      "dependsOn": ["^internal:build", "^domain:build"]
     },
     "setup": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^internal:build", "^domain:build", "^build"],
       "cache": false
     },
     "build": {
       "cache": false,
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**", "storybook-static/**"],
-      "dependsOn": ["^internal:build", "^build"]
+      "dependsOn": ["^internal:build", "^domain:build", "^build"]
     },
     "typecheck": {
       "cache": false,
@@ -45,28 +45,23 @@
       "cache": false,
       "dependsOn": []
     },
-    "domain:dev": {
-      "dependsOn": [],
-      "persistent": true
-    },
     "internal:dev": {
       "dependsOn": [],
       "persistent": true
     },
     "dev": {
-      "dependsOn": [],
-      "persistent": true
-    },
-    "dev:storybook": {
-      "dependsOn": [],
+      "cache": false,
+      "dependsOn": ["^internal:build", "^domain:build"],
       "persistent": true
     },
     "vite:watch": {
-      "dependsOn": [],
+      "cache": false,
+      "dependsOn": ["^internal:build", "^domain:build"],
       "persistent": true
     },
     "storybook": {
-      "dependsOn": []
+      "cache": true,
+      "dependsOn": ["^build"]
     },
     "preview-storybook": {
       "dependsOn": ["^build"]
