@@ -13,3 +13,11 @@ FormKit provides:
 - A visual builder for authoring and maintaining those schemas
 - A React runtime that renders forms based on the generated schema
 - A clean separation between product-facing configuration and developer-facing implementation
+
+### Documentation
+
+- Project Overview: https://kurocado-studio.github.io/formkit
+
+### Related Repositories
+
+- Consumer Renderer: https://github.com/Kurocado-Studio/format-consumer-demo
