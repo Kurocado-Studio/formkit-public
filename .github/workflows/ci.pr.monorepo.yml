@@ -12,6 +12,7 @@ jobs:
     uses: kurocado-studio/platform/.github/workflows/workflow.lint.yml@main
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     with:
       monorepo: true
 
@@ -20,5 +21,6 @@ jobs:
     uses: kurocado-studio/platform/.github/workflows/workflow.test.yml@main
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     with:
       monorepo: true
