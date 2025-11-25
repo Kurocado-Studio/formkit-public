@@ -1,6 +1,6 @@
 import {
-  FullScreenLoader,
   KurocadoStudioThemeProvider,
+  defaultSystemHausThemeVariables,
 } from '@kurocado-studio/react-design-system';
 import React from 'react';
 import 'react18-json-view/src/style.css';
@@ -17,7 +17,9 @@ if (rootElement) {
 
   root.render(
     <React.StrictMode>
-      <KurocadoStudioThemeProvider LoaderComponent={FullScreenLoader}>
+      <KurocadoStudioThemeProvider
+        themeOverwrite={defaultSystemHausThemeVariables}
+      >
         <PanelsAndModalsProvider>
           <FormDesignerProvider>
             <Demo />
