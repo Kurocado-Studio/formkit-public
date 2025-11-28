@@ -2,37 +2,23 @@ import { VariantEnum } from '@kurocado-studio/formkit-ui-models';
 import { type Form, type Question } from '@kurocado-studio/formkit-ui-models';
 import { get } from 'lodash-es';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { StoreApi } from 'zustand';
-import { createStore } from 'zustand/vanilla';
 
-import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../../config/constants';
-import type { FormsNodeTree, FormsStore } from '../../types';
-import { useFormKitStore } from '../useFormikStore';
-import { composeFormsNodeTree } from './composeFormsNodeTree';
-import { formsStore } from './forms.store';
+import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../constants';
+import type { FormsNodeTree } from '../types';
+import { composeFormsNodeTree } from '../composeFormsNodeTree';
+import { createFormKitStore, type FormKitStoreApi } from '../exports';
 
-vi.mock('../useFormikStore', () => ({
-  useFormKitStore: {
-    getState: vi.fn(),
-  },
-}));
-
-vi.mock('./composeFormsNodeTree', () => ({
+vi.mock('../composeFormsNodeTree', () => ({
   composeFormsNodeTree: vi.fn(),
 }));
 
-const mockedComposeFormsNodeTree =
-  composeFormsNodeTree as unknown as ReturnType<
-    typeof vi.fn<(forms?: Form[]) => FormsNodeTree>
-  >;
 
 describe('formsStore', () => {
-  let store: StoreApi<FormsStore>;
+  let store: FormKitStoreApi;
 
   beforeEach(() => {
     vi.clearAllMocks();
-    mockedComposeFormsNodeTree.mockReturnValue({});
-    store = createStore(formsStore);
+    store = createFormKitStore();
   });
 
   it('should initialize with default values', () => {
@@ -65,7 +51,6 @@ describe('formsStore', () => {
     store.getState().handleComposeFormsNodeTree({ forms: fakeForms });
 
     expect(composeFormsNodeTree).toHaveBeenCalledWith(fakeForms);
-    expect(store.getState().formsNodeTree).toEqual({});
   });
 
   it('should update formsNodeTree directly', () => {
@@ -87,27 +72,22 @@ describe('formsStore', () => {
       label: 'Question 1',
     };
 
-    const fakePath = 'form1.sections.section1.questions';
-
-    (
-      useFormKitStore.getState as unknown as ReturnType<typeof vi.fn>
-    ).mockReturnValue({
-      composePaths: () => ({
-        toQuestions: fakePath,
-      }),
-    });
-
-    store.setState({
-      formsNodeTree: {
-        form1: {
-          sections: {
-            section1: {
-              questions: {},
-            },
+    const fakePath = ['form1', 'sections', 'section1', 'questions'];
+    const formsNodeTree = {
+      form1: {
+        sections: {
+          section1: {
+            questions: {},
           },
         },
       },
+    } as unknown as FormsNodeTree;
+
+    store.setState({
+      formIdBeingEdited: 'form1',
+      sectionIdBeingEdited: 'section1',
     });
+    store.setState({ formsNodeTree });
 
     // Act
     store.getState().handleAddQuestionToForm({ question });

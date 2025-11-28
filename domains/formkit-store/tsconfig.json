@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": ["@internal/config/tsconfig.web"],
+  "compilerOptions": {
+    "types": [],
+    "rootDir": ".",
+    "outDir": "dist",
+    "composite": false,
+    "noEmit": true
+  },
+  "include": ["src", "tsup.config.ts", "vitest.config.ts", "setup.web.ts"],
+  "exclude": ["node_modules", "dist"]
+}

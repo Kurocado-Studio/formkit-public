@@ -1,11 +1,11 @@
 import { get, set } from 'lodash-es';
 
-import { DEFAULT_API_STATE } from '../../config/constants';
+import { DEFAULT_API_STATE } from '../constants';
 import type {
   QuestionStoreApiNames,
   QuestionsStore,
   StoreCreator,
-} from '../../types';
+} from '../types';
 
 export const questionsStore: StoreCreator<QuestionsStore> = (setState) => {
   return {

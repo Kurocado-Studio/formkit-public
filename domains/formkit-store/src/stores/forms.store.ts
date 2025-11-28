@@ -1,10 +1,9 @@
 import type { Question } from '@kurocado-studio/formkit-ui-models';
 import { get, set } from 'lodash-es';
 
-import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../../config/constants';
-import type { FormsStore, FormsStoreApiNames, StoreCreator } from '../../types';
-import { useFormKitStore } from '../useFormikStore';
-import { composeFormsNodeTree } from './composeFormsNodeTree';
+import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../constants';
+import { composeFormsNodeTree } from '../composeFormsNodeTree';
+import type { FormsStore, FormsStoreApiNames, StoreCreator } from '../types';
 
 export const formsStore: StoreCreator<FormsStore> = (setState, getState) => {
   return {
@@ -29,7 +28,8 @@ export const formsStore: StoreCreator<FormsStore> = (setState, getState) => {
       setState({ formsNodeTree });
     },
     handleAddQuestionToForm: (payload: { question: Question }) => {
-      const { toQuestions } = useFormKitStore.getState().composePaths();
+      // @ts-expect-error for now why we test
+      const { toQuestions } = getState().composePaths();
       const { question } = payload;
       const formsNodeTree = { ...getState().formsNodeTree };
 

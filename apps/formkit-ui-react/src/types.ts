@@ -1,5 +1,9 @@
 // @ts-expect-error while we fix typings
-import type { AxiosDataState, AxiosState } from '@kurocado-studio/axios-react';
+import type { AxiosDataState } from '@kurocado-studio/axios-react';
+import type {
+  FormsNodeTree,
+  SectionNodeTree,
+} from '@kurocado-studio/formkit-store';
 import type {
   Form,
   Question,
@@ -10,17 +14,22 @@ import type {
 import type { PolymorphicMotionProperties } from '@kurocado-studio/react-design-system';
 import type React from 'react';
 import { type ZodTypeAny, z } from 'zod';
-import type { StoreApi } from 'zustand';
 
 import type { FormDesignerPanelsEnum, ModalsAndPanelsViewsEnum } from './enums';
 import type { FormNodeFormSchema } from './schemas/formNode.schema.ts';
 import { textFieldNodeFormSchema } from './schemas/textFieldNode.schema.ts';
 
-export type StoreCreator<T> = (
-  set: StoreApi<T>['setState'],
-  get: StoreApi<T>['getState'],
-  api: StoreApi<T>,
-) => T;
+export type {
+  ApiState,
+  FormsNodeTree,
+  FormsStore,
+  FormsStoreApiNames,
+  QuestionStoreApiNames,
+  QuestionsStore,
+  SectionNodeTree,
+  SectionsStore,
+  StoreCreator,
+} from '@kurocado-studio/formkit-store';
 
 export interface FormDesignerEditorDto {
   questionBeingEdited: Question;
@@ -53,13 +62,6 @@ export type UseGetFormById = () => {
   getFormById: (id: string) => Promise<Form>;
 };
 
-export type FormsNodeTree = Record<
-  string,
-  Omit<Form, 'sections'> & {
-    sections: Record<string, SectionNodeTree>;
-  }
->;
-
 export type FormsNodeTreeFallback = {
   [formId: string]: Omit<Form, 'sections'> & {
     sections: {
@@ -75,35 +77,6 @@ export type FormsNode = {
     };
   };
 };
-
-export interface SectionNodeTree extends Omit<Section, 'questions'> {
-  questions: {
-    [questionId: string]: Question;
-  };
-}
-
-export type ApiState = Pick<
-  AxiosState<Record<string, unknown>>,
-  'isLoading' | 'error'
->;
-
-export type FormsStoreApiNames = 'getFormByIdState';
-
-export type QuestionStoreApiNames = 'createQuestionState';
-
-export interface FormsStore {
-  formIdBeingEdited: string | undefined;
-  formsNodeTree: FormsNodeTree;
-  getFormByIdState: ApiState;
-  handleUpdateFormsStoreApiState: (
-    apiState: ApiState,
-    name: FormsStoreApiNames,
-  ) => void;
-  handleUpdateFormsNodeTree: (payload: FormsNodeTree) => void;
-  handleSetFormBeingEdited: (payload: { id: string | undefined }) => void;
-  handleComposeFormsNodeTree: (payload: { forms: Array<Form> }) => void;
-  handleAddQuestionToForm: (payload: { question: Question }) => void;
-}
 
 export interface QuestionCreatorPayload extends Record<string, unknown> {
   question: QuestionCreatorDto;
@@ -126,16 +99,6 @@ export interface FormDesignerContext {
   handleFormDesignerState: (view: FormDesignerPanelsEnum) => void;
 }
 
-export interface QuestionsStore {
-  createQuestionState: ApiState;
-  questionIdBeingEdited: string | undefined;
-  handleSetQuestionToBeEdited: (payload: { id?: string }) => void;
-  handleUpdateQuestionsStoreApiState: (
-    apiState: ApiState,
-    name: QuestionStoreApiNames,
-  ) => void;
-}
-
 export type UseReadFormUseCase = () => {
   executeReadForm: (payload: {
     id?: string;
@@ -150,11 +113,6 @@ export type UseUpdateFormUseCase = () => {
 export type UseGetFormByIdUseCase = () => {
   executeGetFormById: (payload: { id: string }) => Promise<FormsNodeTree>;
 };
-
-export interface SectionsStore {
-  sectionIdBeingEdited: string | undefined;
-  handleUpdateSectionBeingEdited: (payload: { id: string }) => void;
-}
 
 export type PanelsAndModalsMapComponentMap = {
   [k in ModalsAndPanelsViewsEnum]: React.FC;
