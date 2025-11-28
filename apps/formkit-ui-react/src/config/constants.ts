@@ -6,25 +6,16 @@ import {
 } from '@kurocado-studio/formkit-ui-models';
 import type { GridProperties } from '@kurocado-studio/ui-react-research-and-development';
 
-import { composeFormsNodeTree } from '../application/store/composeFormsNodeTree';
-import type { ApiState } from '../types';
-
 export {
   KUROCADO_STUDIO_ORGANIZATION_ID_FORMKIT,
   KUROCADO_STUDIO_DEMO_FORM_ID,
 } from '@kurocado-studio/formkit-ui-models';
+export { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '@kurocado-studio/formkit-store';
 
 export const CONTAINER_MAX_WIDTH = 'w-full mx-auto max-w-[2440px]';
 
 const createdAt = new Date().toISOString();
 const updatedAt = new Date().toISOString();
-
-export const EMPTY_NODE_TREE = composeFormsNodeTree([]);
-
-export const DEFAULT_API_STATE: ApiState = {
-  isLoading: false,
-  error: undefined,
-};
 
 export const VIEWPORT_WIDTH_TO_TRIGGER_MOBILE_PANEL = 1024;
 

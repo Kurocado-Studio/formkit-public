@@ -49,6 +49,7 @@
     "@conform-to/react": "^1.10.1",
     "@conform-to/zod": "^1.9.0",
     "@kurocado-studio/axios-react": "^1.0.0",
+    "@kurocado-studio/formkit-store": "workspace:*",
     "@kurocado-studio/formkit-ui-models": "1.0.0-develop.2",
     "@kurocado-studio/formkit-ui-react-renderer": "1.0.0-develop.3",
     "@kurocado-studio/react-design-system": "1.0.0-develop.24",
