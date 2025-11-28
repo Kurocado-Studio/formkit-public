@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": ["@internal/config/tsconfig.web"],
   "compilerOptions": {
-    "types": ["vitest/globals", "node", "lodash-es"],
-    "rootDir": "src",
+    "types": [],
+    "rootDir": ".",
     "outDir": "dist",
     "composite": false,
     "noEmit": true

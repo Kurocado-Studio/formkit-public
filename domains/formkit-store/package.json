@@ -26,10 +26,7 @@
     "prettier-fix": "prettier --check  --write",
     "semantic-release": "semantic-release",
     "test": "vitest run --coverage",
-    "typecheck": "tsc --noEmit --pretty",
-    "storybook": "storybook dev -p 6007",
-    "build-storybook": "storybook build",
-    "setup": "pnpm clean && pnpm i && pnpm build"
+    "typecheck": "tsc --noEmit --pretty"
   },
   "dependencies": {
     "@kurocado-studio/formkit-ui-models": "1.0.0-develop.2",
