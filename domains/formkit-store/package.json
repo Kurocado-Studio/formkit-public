@@ -21,7 +21,6 @@
     "eslint-check": "eslint --max-warnings=0  --debug",
     "eslint-fix": "eslint --max-warnings=0  --fix --no-warn-ignored",
     "lint": "eslint --max-warnings=0  --no-warn-ignored",
-    "prepare": "husky install",
     "prettier-check": "prettier --check ",
     "prettier-fix": "prettier --check  --write",
     "semantic-release": "semantic-release",
