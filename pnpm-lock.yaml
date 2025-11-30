@@ -56,12 +56,9 @@ importers:
       '@kurocado-studio/axios-react':
         specifier: ^1.0.0
         version: 1.0.2(typescript@5.8.3)
-      '@kurocado-studio/formkit-store':
+      '@kurocado-studio/formkit-ui':
         specifier: workspace:*
-        version: link:../../domains/formkit-store
-      '@kurocado-studio/formkit-ui-models':
-        specifier: 1.0.0-develop.2
-        version: 1.0.0-develop.2
+        version: link:../../domains/formkit-ui
       '@kurocado-studio/formkit-ui-react-renderer':
         specifier: 1.0.0-develop.3
         version: 1.0.0-develop.3(react-dom@19.0.0(react@19.0.0))(tailwindcss@4.1.17)(typescript@5.8.3)
@@ -205,11 +202,17 @@ importers:
         specifier: ^3.0.5
         version: 3.2.4(@types/debug@4.1.12)(@types/node@22.19.1)(jiti@2.6.1)(jsdom@26.1.0)(lightningcss@1.30.2)(yaml@2.8.1)
 
-  domains/formkit-store:
+  domains/formkit-ui:
     dependencies:
+      '@kurocado-studio/axios-react':
+        specifier: ^1.0.0
+        version: 1.0.2(typescript@5.8.3)
       '@kurocado-studio/formkit-ui-models':
         specifier: 1.0.0-develop.2
         version: 1.0.0-develop.2
+      axios:
+        specifier: ^1.12.0
+        version: 1.13.2
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -7002,7 +7005,7 @@ packages:
     resolution: {integrity: sha512-D3X8FyH9nBcTSHGdEKurK7r8OYE1kKFn3d/CF+CoxbSHkxU7o37+Uh7eAHRXr6k2tSExXYO++07PeXJtA/dEhQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: '>=16.8'
+      react: 19.0.0
 
   react18-json-view@0.2.9:
     resolution: {integrity: sha512-z3JQgCwZRKbmWh54U94loCU6vE0ZoDBK7C8ZpcMYQB8jYMi+mR/fcgMI9jKgATeF0I6+OAF025PD+UKkXIqueQ==}
@@ -8818,7 +8821,7 @@ snapshots:
       '@commitlint/types': 19.8.1
       chalk: 5.6.2
       cosmiconfig: 9.0.0(typescript@5.1.6)
-      cosmiconfig-typescript-loader: 6.2.0(@types/node@24.10.1)(cosmiconfig@9.0.0(typescript@5.1.6))(typescript@5.1.6)
+      cosmiconfig-typescript-loader: 6.2.0(@types/node@24.10.1)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.1.6)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -13943,10 +13946,10 @@ snapshots:
       jiti: 2.6.1
       typescript: 5.8.3
 
-  cosmiconfig-typescript-loader@6.2.0(@types/node@24.10.1)(cosmiconfig@9.0.0(typescript@5.1.6))(typescript@5.1.6):
+  cosmiconfig-typescript-loader@6.2.0(@types/node@24.10.1)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.1.6):
     dependencies:
       '@types/node': 24.10.1
-      cosmiconfig: 9.0.0(typescript@5.1.6)
+      cosmiconfig: 9.0.0(typescript@5.8.3)
       jiti: 2.6.1
       typescript: 5.1.6
 
@@ -14841,7 +14844,7 @@ snapshots:
 
   eval@0.1.8:
     dependencies:
-      '@types/node': 24.10.1
+      '@types/node': 22.19.1
       require-like: 0.1.2
 
   event-target-shim@5.0.1: {}

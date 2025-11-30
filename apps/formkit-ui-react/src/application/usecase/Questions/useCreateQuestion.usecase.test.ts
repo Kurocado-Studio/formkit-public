@@ -1,16 +1,15 @@
 import { useAxios } from '@kurocado-studio/axios-react';
-import { VariantEnum } from '@kurocado-studio/formkit-ui-models';
+import { VariantEnum } from '@kurocado-studio/formkit-ui';
 import { ReactTestingLibrary } from '@kurocado-studio/qa';
+import { formKitStore } from '@kurocado-studio/formkit-ui';
 
 import { EMPTY_QUESTION_NODE } from '../../../config/constants';
 import { useFormDesignerContext } from '../../../context/FormDesignerContext';
 import { usePanelsAndModalsContext } from '../../../context/PanelsAndModalsContext';
-import { useFormKitStore } from '../../useFormikStore';
 import { useCreateTextFieldQuestionUseCase } from './useCreateQuestion.usecase';
 
 const { act, renderHook } = ReactTestingLibrary;
 
-vi.mock('../../useFormikStore', () => ({ useFormKitStore: vi.fn() }));
 vi.mock('@kurocado-studio/axios-react', () => ({ useAxios: vi.fn() }));
 vi.mock('../../../context/FormDesignerContext', () => ({
   useFormDesignerContext: vi.fn(),
@@ -38,13 +37,13 @@ describe('useCreateTextFieldQuestionUseCase', () => {
   beforeEach(() => {
     vi.clearAllMocks();
 
-    (useFormKitStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
+    vi.spyOn(formKitStore, 'getState').mockReturnValue({
       formIdBeingEdited,
       sectionIdBeingEdited,
       handleAddQuestionToForm,
       handleSetQuestionToBeEdited,
       handleUpdateQuestionsStoreApiState,
-    });
+    } as unknown as ReturnType<typeof formKitStore.getState>);
 
     (useAxios as unknown as ReturnType<typeof vi.fn>).mockReturnValue([
       { resetState, isLoading: false, error: undefined },

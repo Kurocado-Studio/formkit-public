@@ -1,21 +1,18 @@
 import { useAxios } from '@kurocado-studio/axios-react';
-import type { Form } from '@kurocado-studio/formkit-ui-models';
+import type { Form } from '@kurocado-studio/formkit-ui';
+import { type FormKitStore } from '@kurocado-studio/formkit-ui';
+import { formKitStore } from '@kurocado-studio/formkit-ui';
 import { ReactTestingLibrary } from '@kurocado-studio/qa';
-import { type FormKitStore } from '@kurocado-studio/formkit-store';
-import { useFormKitStore } from '../../useFormikStore';
-import { useGetFormByIdUseCase } from './useGetFormById.usecase';
+
+import { useGetFormById } from './useGetFormById.ts';
 
 const { act, renderHook } = ReactTestingLibrary;
-
-vi.mock('../../useFormikStore', () => ({
-  useFormKitStore: vi.fn(),
-}));
 
 vi.mock('@kurocado-studio/axios-react', () => ({
   useAxios: vi.fn(),
 }));
 
-describe('useGetFormByIdUseCase', () => {
+describe('useGetFormById', () => {
   const resetState = vi.fn();
   const getSingleFormHandler = vi.fn();
 
@@ -29,16 +26,13 @@ describe('useGetFormByIdUseCase', () => {
   beforeEach(() => {
     vi.clearAllMocks();
 
-    (useFormKitStore as unknown as ReturnType<typeof vi.fn>).mockImplementation(
-      (selector: (payload: Partial<FormKitStore>) => FormKitStore) =>
-        selector({
-          formsNodeTree: formsNodeTreeMock,
-          handleUpdateFormsStoreApiState,
-          handleSetFormBeingEdited,
-          handleComposeFormsNodeTree,
-          handleUpdateSectionBeingEdited,
-        }),
-    );
+    vi.spyOn(formKitStore, 'getState').mockReturnValue({
+      formsNodeTree: formsNodeTreeMock,
+      handleUpdateFormsStoreApiState,
+      handleSetFormBeingEdited,
+      handleComposeFormsNodeTree,
+      handleUpdateSectionBeingEdited,
+    } as unknown as FormKitStore);
 
     (useAxios as unknown as ReturnType<typeof vi.fn>).mockReturnValue([
       { resetState, isLoading: false, error: undefined },
@@ -66,7 +60,7 @@ describe('useGetFormByIdUseCase', () => {
 
     getSingleFormHandler.mockResolvedValue(fakeForm);
 
-    const { result } = renderHook(() => useGetFormByIdUseCase());
+    const { result } = renderHook(() => useGetFormById());
 
     await act(async () => {
       const returnedTree = await result.current.executeGetFormById({
@@ -95,7 +89,7 @@ describe('useGetFormByIdUseCase', () => {
   it('should return formsNodeTree and not throw if API fails', async () => {
     getSingleFormHandler.mockRejectedValue(new Error('API Error'));
 
-    const { result } = renderHook(() => useGetFormByIdUseCase());
+    const { result } = renderHook(() => useGetFormById());
 
     await act(async () => {
       const returnedTree = await result.current.executeGetFormById({
@@ -111,7 +105,7 @@ describe('useGetFormByIdUseCase', () => {
   });
 
   it('should update store API state on render', () => {
-    renderHook(() => useGetFormByIdUseCase());
+    renderHook(() => useGetFormById());
 
     expect(handleUpdateFormsStoreApiState).toHaveBeenCalledWith(
       { isLoading: false, error: undefined },

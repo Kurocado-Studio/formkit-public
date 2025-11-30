@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
-
+import { type FormDesignerContext } from '@kurocado-studio/formkit-ui';
 import { FormDesignerPanelsEnum } from '../enums';
-import type { FormDesignerContext } from '../types';
 
 const FormDesignerContext = createContext<FormDesignerContext>({
   handleFormDesignerState: () => {},

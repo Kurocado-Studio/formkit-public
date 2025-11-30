@@ -1,9 +1,11 @@
 import { get } from 'lodash-es';
 import React, { createContext, useContext, useState } from 'react';
-
-import { QuestionCreatorPanel } from '../components/QuestionCreatorPanel.tsx';
+import {
+  type PanelsAndModalsContext,
+  type PanelsAndModalsMap,
+} from '@kurocado-studio/formkit-ui';
+import { QuestionCreatorPanel } from '../components/QuestionCreatorPanel';
 import { ModalsAndPanelsViewsEnum } from '../enums';
-import type { FormViewContextType, PanelsAndModalsMap } from '../types';
 
 const { UNKNOWN, FORM_DESIGNER_PANEL, QUESTION_SELECTOR_PANEL } =
   ModalsAndPanelsViewsEnum;
@@ -14,7 +16,7 @@ const panelsAndModalsDefaultState: PanelsAndModalsMap = {
   [UNKNOWN]: false,
 };
 
-const PanelsAndModalsContext = createContext<FormViewContextType>({
+const PanelsAndModalsContext = createContext<PanelsAndModalsContext>({
   handlePanelsAndModalsState: () => {},
   panelsAndModalsState: panelsAndModalsDefaultState,
 });
@@ -55,6 +57,6 @@ export function PanelsAndModalsProvider({
   );
 }
 
-export const usePanelsAndModalsContext = (): FormViewContextType => {
+export const usePanelsAndModalsContext = (): PanelsAndModalsContext => {
   return useContext(PanelsAndModalsContext);
 };

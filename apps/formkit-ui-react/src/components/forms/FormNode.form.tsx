@@ -1,4 +1,4 @@
-import type { Form } from '@kurocado-studio/formkit-ui-models';
+import type { Form } from '@kurocado-studio/formkit-ui';
 import {
   AnimateMotionPresence,
   Card,

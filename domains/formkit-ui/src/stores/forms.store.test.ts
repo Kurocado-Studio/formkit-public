@@ -5,7 +5,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../constants';
 import type { FormsNodeTree } from '../types';
-import { composeFormsNodeTree } from '../composeFormsNodeTree';
+import { composeFormsNodeTree } from '../utils/composeFormsNodeTree';
 import { createFormKitStore, type FormKitStoreApi } from '../exports';
 
 vi.mock('../composeFormsNodeTree', () => ({

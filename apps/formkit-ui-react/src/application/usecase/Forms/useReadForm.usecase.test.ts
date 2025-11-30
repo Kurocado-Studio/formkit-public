@@ -1,19 +1,15 @@
 import { ReactTestingLibrary } from '@kurocado-studio/qa';
 
+import { formKitStore } from '@kurocado-studio/formkit-ui';
 import { useFormDesignerContext } from '../../../context/FormDesignerContext';
 import { usePanelsAndModalsContext } from '../../../context/PanelsAndModalsContext';
 import {
   FormDesignerPanelsEnum,
   ModalsAndPanelsViewsEnum,
 } from '../../../enums';
-import { useFormKitStore } from '../../useFormikStore';
 import { useReadFormUseCase } from './useReadForm.usecase';
 
 const { act, renderHook } = ReactTestingLibrary;
-
-vi.mock('../../useFormikStore', () => ({
-  useFormKitStore: vi.fn(),
-}));
 
 vi.mock('../../../context/PanelsAndModalsContext', () => ({
   usePanelsAndModalsContext: vi.fn(),
@@ -32,10 +28,10 @@ describe('useReadFormUseCase', () => {
   beforeEach(() => {
     vi.clearAllMocks();
 
-    (useFormKitStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
+    vi.spyOn(formKitStore, 'getState').mockReturnValue({
       handleSetFormBeingEdited,
       handleSetQuestionToBeEdited,
-    });
+    } as unknown as ReturnType<typeof formKitStore.getState>);
 
     (
       usePanelsAndModalsContext as unknown as ReturnType<typeof vi.fn>

@@ -1,13 +1,9 @@
 import { ReactTestingLibrary } from '@kurocado-studio/qa';
+import { formKitStore } from '@kurocado-studio/formkit-ui';
 
-import { useFormKitStore } from '../../useFormikStore';
 import { useUpdateFormUseCase } from './useUpdateForm.usecase';
 
 const { act, renderHook } = ReactTestingLibrary;
-
-vi.mock('../../useFormikStore', () => ({
-  useFormKitStore: vi.fn(),
-}));
 
 describe('useUpdateFormUseCase', () => {
   const handleUpdateFormsNodeTree = vi.fn();
@@ -24,11 +20,11 @@ describe('useUpdateFormUseCase', () => {
   beforeEach(() => {
     vi.clearAllMocks();
 
-    (useFormKitStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
+    vi.spyOn(formKitStore, 'getState').mockReturnValue({
       formsNodeTree: initialFormsNodeTree,
       composePaths: composePaths,
       handleUpdateFormsNodeTree,
-    });
+    } as unknown as ReturnType<typeof formKitStore.getState>);
   });
 
   it('updates form properties correctly', () => {

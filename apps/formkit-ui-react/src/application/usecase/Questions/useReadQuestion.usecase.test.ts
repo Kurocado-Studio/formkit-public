@@ -1,4 +1,5 @@
 import { ReactTestingLibrary } from '@kurocado-studio/qa';
+import { formKitStore } from '@kurocado-studio/formkit-ui';
 import { useWindowSize } from '@kurocado-studio/react-utils';
 
 import { VIEWPORT_WIDTH_TO_TRIGGER_MOBILE_PANEL } from '../../../config/constants';
@@ -8,13 +9,11 @@ import {
   FormDesignerPanelsEnum,
   ModalsAndPanelsViewsEnum,
 } from '../../../enums';
-import { scrollToElement } from '../../../utils/scrollToElement';
-import { useFormKitStore } from '../../useFormikStore';
+import { scrollToElement } from '@kurocado-studio/formkit-ui';
 import { useReadQuestionUseCase } from './useReadQuestion.usecase';
 
 const { act, renderHook } = ReactTestingLibrary;
 
-vi.mock('../../useFormikStore', () => ({ useFormKitStore: vi.fn() }));
 vi.mock('../../../context/FormDesignerContext', () => ({
   useFormDesignerContext: vi.fn(),
 }));
@@ -32,9 +31,9 @@ describe('useReadQuestionUseCase', () => {
   beforeEach(() => {
     vi.clearAllMocks();
 
-    (useFormKitStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
+    vi.spyOn(formKitStore, 'getState').mockReturnValue({
       handleSetQuestionToBeEdited,
-    });
+    } as unknown as ReturnType<typeof formKitStore.getState>);
 
     (
       useFormDesignerContext as unknown as ReturnType<typeof vi.fn>

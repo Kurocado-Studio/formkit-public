@@ -1,12 +1,10 @@
 import { ReactTestingLibrary } from '@kurocado-studio/qa';
+import { formKitStore } from '@kurocado-studio/formkit-ui';
 import { get } from 'lodash-es';
 
-import { useFormKitStore } from '../../useFormikStore';
 import { useUpdateQuestionUseCase } from './useUpdateQuestion.usecase';
 
 const { act, renderHook } = ReactTestingLibrary;
-
-vi.mock('../../useFormikStore', () => ({ useFormKitStore: vi.fn() }));
 
 describe('useUpdateQuestionUseCase', () => {
   const handleUpdateFormsNodeTree = vi.fn();
@@ -30,13 +28,13 @@ describe('useUpdateQuestionUseCase', () => {
   beforeEach(() => {
     vi.clearAllMocks();
 
-    (useFormKitStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
+    vi.spyOn(formKitStore, 'getState').mockReturnValue({
       formsNodeTree: initialNodeTree,
       handleUpdateFormsNodeTree,
       composePaths: () => ({
-        toCurrentQuestion: 'form1.sections.section1.questions.q1',
+        toCurrentQuestion: ['form1', 'sections', 'section1', 'questions', 'q1'],
       }),
-    });
+    } as unknown as ReturnType<typeof formKitStore.getState>);
   });
 
   it('should update question properties in formsNodeTree', () => {
@@ -63,7 +61,7 @@ describe('useUpdateQuestionUseCase', () => {
     ]);
     const updatedQuestion = get(
       updatedNodeTree,
-      'form1.sections.section1.questions.q1',
+      'form1.sections.section1.Questions.q1',
     );
 
     expect(updatedQuestion).toEqual({
@@ -74,13 +72,13 @@ describe('useUpdateQuestionUseCase', () => {
   });
 
   it('should not call handleUpdateFormsNodeTree if current question is undefined', () => {
-    (useFormKitStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
+    vi.spyOn(formKitStore, 'getState').mockReturnValue({
       formsNodeTree: initialNodeTree,
       handleUpdateFormsNodeTree,
       composePaths: () => ({
-        toCurrentQuestion: 'form1.sections.section1.questions.q2',
+        toCurrentQuestion: ['form1', 'sections', 'section1', 'questions', 'q2'],
       }),
-    });
+    } as unknown as ReturnType<typeof formKitStore.getState>);
 
     const { result } = renderHook(() => useUpdateQuestionUseCase());
 

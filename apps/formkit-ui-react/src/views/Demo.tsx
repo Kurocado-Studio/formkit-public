@@ -1,6 +1,7 @@
 // TODO: update styleguide to disable this rule on files ending with (.tsx)
 /* eslint-disable unicorn/no-null */
-import type { Form, Question } from '@kurocado-studio/formkit-ui-models';
+import type { Form, Question } from '@kurocado-studio/formkit-ui';
+import { EMPTY_FORM_NODE } from '@kurocado-studio/formkit-ui';
 import { useFadeAnimations } from '@kurocado-studio/react-design-system';
 import {
   Controls,
@@ -14,7 +15,6 @@ import { twMerge } from 'tailwind-merge';
 
 import { useFormKitService } from '../application/useFormKitService';
 import { useFormKitStore } from '../application/useFormikStore';
-import { useReadFormUseCase } from '../application/usecase/Forms/useReadForm.usecase';
 import { FormDesignerManager } from '../components/FormDesignerManager';
 import { Header } from '../components/Header';
 import { NodeDesignerControls } from '../components/NodeDesignerControls';
@@ -22,7 +22,6 @@ import { NodeRenderer } from '../components/NodeRenderer';
 import { QuestionCreator } from '../components/QuestionCreator';
 import {
   CONTAINER_MAX_WIDTH,
-  EMPTY_FORM_NODE,
   GRID_LAYOUT,
   KUROCADO_STUDIO_DEMO_FORM_ID,
 } from '../config/constants';
@@ -34,12 +33,10 @@ const questionControlWithinGridClassNamesOverwrites = [
 ];
 
 export function Demo(): React.ReactNode {
-  const { executeGetFormById } = useFormKitService();
+  const { executeGetFormById, executeReadForm } = useFormKitService();
 
   const { getFormByIdState, formsNodeTree, formIdBeingEdited, composePaths } =
     useFormKitStore();
-
-  const { executeReadForm } = useReadFormUseCase();
 
   const { toQuestions, toCurrentForm } = composePaths();
 
@@ -57,27 +54,13 @@ export function Demo(): React.ReactNode {
 
   const questionsBeingEdited: Array<Question> = Object.values(questionsMap);
 
-  const hasGetFormByIdApiError = getFormByIdState.error;
-  const isLoadingGetFormByIdApi = getFormByIdState.isLoading;
-
   const { fadeInLeft, fadeInDefault } = useFadeAnimations();
 
   React.useEffect(() => {
-    if (
-      !isLoadingGetFormByIdApi &&
-      formIdBeingEdited === undefined &&
-      !hasGetFormByIdApiError
-    ) {
-      executeGetFormById({
-        id: KUROCADO_STUDIO_DEMO_FORM_ID,
-      }).then();
+    if (formIdBeingEdited === undefined) {
+      executeGetFormById({ id: KUROCADO_STUDIO_DEMO_FORM_ID });
     }
-  }, [
-    executeGetFormById,
-    hasGetFormByIdApiError,
-    isLoadingGetFormByIdApi,
-    formIdBeingEdited,
-  ]);
+  }, [executeGetFormById, formIdBeingEdited]);
 
   React.useEffect(() => {
     if (formIdBeingEdited) {

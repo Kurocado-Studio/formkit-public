@@ -1,3 +1,5 @@
+import { readFormByIdUseCase, formKitStore } from '@kurocado-studio/formkit-ui';
+
 import { useFormDesignerContext } from '../../../context/FormDesignerContext';
 import { usePanelsAndModalsContext } from '../../../context/PanelsAndModalsContext';
 import {
@@ -5,32 +7,25 @@ import {
   ModalsAndPanelsViewsEnum,
 } from '../../../enums';
 import type { UseReadFormUseCase } from '../../../types';
-import { useFormKitStore } from '../../useFormikStore';
 
 export const useReadFormUseCase: UseReadFormUseCase = () => {
-  const { handleSetFormBeingEdited, handleSetQuestionToBeEdited } =
-    useFormKitStore();
-
   const { handlePanelsAndModalsState } = usePanelsAndModalsContext();
   const { handleFormDesignerState } = useFormDesignerContext();
 
   const { FORM_DESIGNER_PANEL } = ModalsAndPanelsViewsEnum;
   const { FORM } = FormDesignerPanelsEnum;
 
-  const executeReadForm: ReturnType<UseReadFormUseCase>['executeReadForm'] = ({
-    id,
-    shouldOpenFormDesignerPanel,
-  }) => {
-    if (id === undefined) return;
+  const { executeReadForm } = readFormByIdUseCase({ store: formKitStore });
 
-    handleSetQuestionToBeEdited({ id: undefined });
-    handleSetFormBeingEdited({ id });
-    handleFormDesignerState(FORM);
+  const executeReadFormWithUi: ReturnType<UseReadFormUseCase>['executeReadForm'] =
+    ({ id, shouldOpenFormDesignerPanel }) => {
+      executeReadForm({ id, shouldOpenFormDesignerPanel });
+      handleFormDesignerState(FORM);
 
-    if (shouldOpenFormDesignerPanel) {
-      handlePanelsAndModalsState(FORM_DESIGNER_PANEL);
-    }
-  };
+      if (shouldOpenFormDesignerPanel) {
+        handlePanelsAndModalsState(FORM_DESIGNER_PANEL);
+      }
+    };
 
-  return { executeReadForm };
+  return { executeReadForm: executeReadFormWithUi };
 };

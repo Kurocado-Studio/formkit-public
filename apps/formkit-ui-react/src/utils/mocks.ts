@@ -4,7 +4,7 @@ import {
   type Question,
   type Section,
   VariantEnum,
-} from '@kurocado-studio/formkit-ui-models';
+} from '@kurocado-studio/formkit-ui';
 
 import { FormsNodeTree, SectionNodeTree } from '../types';
 
@@ -66,7 +66,7 @@ export const mockedForm: Form = {
   id: '2305e7ed-b583-4ef7-9a4c-2bc094b34894',
   title: 'Welcome to FormKit',
   description:
-    'This short demo introduces how FormKit lets you design and (soon) embed forms dynamically. You can edit any title, description, or question — just click and edit!',
+    'This short demo introduces how FormKit lets you design and (soon) embed Forms dynamically. You can edit any title, description, or question — just click and edit!',
   createdAt: '2025-11-11T16:05:23.351Z',
   updatedAt: '2025-11-11T16:05:23.351Z',
   sections: [mockedSection],

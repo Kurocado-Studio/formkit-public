@@ -1,7 +1,7 @@
 import { type Form, VariantEnum } from '@kurocado-studio/formkit-ui-models';
 
 import { composeFormsNodeTree } from './composeFormsNodeTree';
-import { type SectionNodeTree } from './types';
+import { type SectionNodeTree } from '../types';
 import { describe, expect, it } from 'vitest';
 
 describe('composeFormsNodeTree', () => {
@@ -68,7 +68,7 @@ describe('composeFormsNodeTree', () => {
     },
   ];
 
-  it('Should compose forms node tree correctly', async () => {
+  it('Should compose Forms node tree correctly', async () => {
     const result = composeFormsNodeTree(testForm);
 
     const expected: Record<
