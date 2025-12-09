@@ -30,7 +30,7 @@ export type UseCreateQuestionUseCase = () => {
 };
 
 export type UseReadFormUseCase = () => {
-  executeReadForm: (payload: {
+  handleReadForm: (payload: {
     id?: string;
     shouldOpenFormDesignerPanel?: boolean;
   }) => void;

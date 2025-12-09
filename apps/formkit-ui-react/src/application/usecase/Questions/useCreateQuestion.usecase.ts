@@ -32,7 +32,7 @@ export const useCreateTextFieldQuestionUseCase: UseCreateQuestionUseCase =
       async (payload) => {
         const { question, variant } = payload;
 
-        return questionCreatorUseCase.executeCreateTextFieldQuestion({
+        return questionCreatorUseCase.createTextFieldQuestion({
           question,
           variant,
         });

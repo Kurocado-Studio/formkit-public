@@ -1,7 +1,7 @@
 import type { ReadFormDependencies, ReadFormPayload } from '../../types';
 
 export const readFormByIdUseCase = ({ store }: ReadFormDependencies) => {
-  const executeReadForm = ({ id }: ReadFormPayload) => {
+  const handleReadForm = ({ id }: ReadFormPayload) => {
     if (id === undefined) return;
 
     const { handleSetQuestionToBeEdited, handleSetFormBeingEdited } =
@@ -11,5 +11,5 @@ export const readFormByIdUseCase = ({ store }: ReadFormDependencies) => {
     handleSetFormBeingEdited({ id });
   };
 
-  return { executeReadForm };
+  return { handleReadForm };
 };

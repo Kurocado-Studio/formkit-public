@@ -6,8 +6,8 @@ import { useReadQuestionUseCase } from './usecase/Questions/useReadQuestion.usec
 import { useUpdateQuestionUseCase } from './usecase/Questions/useUpdateQuestion.usecase';
 
 export const useFormKitService = () => {
-  const { executeGetFormById } = useGetFormById();
-  const { executeReadForm } = useReadFormUseCase();
+  const { handleGetFormById } = useGetFormById();
+  const { handleReadForm } = useReadFormUseCase();
   const { executeReadQuestion } = useReadQuestionUseCase();
   const { executeUpdateQuestion } = useUpdateQuestionUseCase();
   const { executeUpdateForm } = useUpdateFormUseCase();
@@ -18,8 +18,8 @@ export const useFormKitService = () => {
     executeUpdateForm,
     executeUpdateQuestion,
     executeReadQuestion,
-    executeGetFormById,
+    handleGetFormById,
     executeCreateTextFieldQuestion,
-    executeReadForm,
+    handleReadForm,
   };
 };

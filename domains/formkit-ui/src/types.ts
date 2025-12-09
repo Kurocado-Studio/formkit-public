@@ -94,8 +94,16 @@ export type HttpClient<
   K extends Record<string, unknown> | undefined = undefined,
 > = (payload: AxiosRequestConfig<T>) => Promise<AxiosResponse<K>>;
 
-export interface GetFormByIdDependencies {
-  store: FormKitStoreApi;
+export type FormByIdGetterUseCase = (
+  payload: FormByIdGetterUseCaseDependencies,
+) => FormByIdGetterUseCaseApi;
+
+export interface FormByIdGetterUseCaseApi {
+  handleGetFormById: (df: GetFormByIdPayload) => Promise<Form>;
+}
+
+export interface FormByIdGetterUseCaseDependencies {
+  store: FormKitStore;
   httpClient: HttpClient<WithRecord<GetFormByIdPayload>, Form>;
   organizationId: string;
 }

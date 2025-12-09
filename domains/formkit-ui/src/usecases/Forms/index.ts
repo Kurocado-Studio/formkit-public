@@ -1,3 +1,3 @@
-export * from './getFormById.usecase';
+export * from './getFormById';
 export * from './readFormById.usecase';
 export * from './updateFormById.usecase';

@@ -33,7 +33,7 @@ const questionControlWithinGridClassNamesOverwrites = [
 ];
 
 export function Demo(): React.ReactNode {
-  const { executeGetFormById, executeReadForm } = useFormKitService();
+  const { handleGetFormById, handleReadForm } = useFormKitService();
 
   const { getFormByIdState, formsNodeTree, formIdBeingEdited, composePaths } =
     useFormKitStore();
@@ -49,7 +49,7 @@ export function Demo(): React.ReactNode {
   );
 
   const handleReadCurrentFormById = React.useCallback((): void => {
-    executeReadForm({ id: formIdBeingEdited });
+    handleReadForm({ id: formIdBeingEdited });
   }, [formIdBeingEdited]);
 
   const questionsBeingEdited: Array<Question> = Object.values(questionsMap);
@@ -58,9 +58,9 @@ export function Demo(): React.ReactNode {
 
   React.useEffect(() => {
     if (formIdBeingEdited === undefined) {
-      executeGetFormById({ id: KUROCADO_STUDIO_DEMO_FORM_ID });
+      handleGetFormById({ id: KUROCADO_STUDIO_DEMO_FORM_ID });
     }
-  }, [executeGetFormById, formIdBeingEdited]);
+  }, [handleGetFormById, formIdBeingEdited]);
 
   React.useEffect(() => {
     if (formIdBeingEdited) {
