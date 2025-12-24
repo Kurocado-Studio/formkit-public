@@ -3,6 +3,8 @@
 **/*.svg
 **/*.tree
 **/*.woff2
+**/.nvmrc
+**/.node-version
 **/*.xml
 **/.dockerignore
 **/.DS_Store

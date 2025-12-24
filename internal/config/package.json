@@ -28,8 +28,5 @@
     "prettier:fix": "prettier --write . --ignore-path ../../.prettierignore",
     "prettier:check": "prettier --check . --ignore-path ../../.prettierignore",
     "typecheck": "tsc --noEmit --pretty"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
