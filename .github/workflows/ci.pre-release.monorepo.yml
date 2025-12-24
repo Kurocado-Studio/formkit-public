@@ -14,7 +14,7 @@ on:
 
 jobs:
   release:
-    uses: kurocado-studio/platform/.github/workflows/workflow.release.yml@main
+    uses: kurocado-studio/devops/.github/workflows/workflow.release.yml@main
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
