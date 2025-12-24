@@ -80,5 +80,11 @@
     "typescript": "5.1.6",
     "react": "19.0.0",
     "react-dom": "19.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.25.12",
+      "rollup": "4.52.0"
+    }
   }
 }

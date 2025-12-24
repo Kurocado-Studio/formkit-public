@@ -69,16 +69,6 @@
   "engines": {
     "node": ">=20"
   },
-  "pnpm": {
-    "overrides": {
-      "react": "19.0.0",
-      "react-dom": "19.0.0"
-    }
-  },
-  "resolutions": {
-    "esbuild": "0.25.12",
-    "rollup": "4.52.0"
-  },
   "eslintConfig": {
     "extends": ["plugin:storybook/recommended"]
   }
