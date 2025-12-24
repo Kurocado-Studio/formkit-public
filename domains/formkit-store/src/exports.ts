@@ -1,5 +1,5 @@
 import { get } from 'lodash-es';
-import { createStore, type StoreApi } from 'zustand/vanilla';
+import { type StoreApi, createStore } from 'zustand/vanilla';
 
 import { formsStore } from './stores/forms.store';
 import { questionsStore } from './stores/questions.store';

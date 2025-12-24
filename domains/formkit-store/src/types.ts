@@ -1,4 +1,8 @@
-import type { Form, Question, Section } from '@kurocado-studio/formkit-ui-models';
+import type {
+  Form,
+  Question,
+  Section,
+} from '@kurocado-studio/formkit-ui-models';
 import type { StoreApi } from 'zustand/vanilla';
 
 export type StoreCreator<T> = (

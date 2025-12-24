@@ -3,15 +3,14 @@ import { type Form, type Question } from '@kurocado-studio/formkit-ui-models';
 import { get } from 'lodash-es';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../constants';
-import type { FormsNodeTree } from '../types';
 import { composeFormsNodeTree } from '../composeFormsNodeTree';
-import { createFormKitStore, type FormKitStoreApi } from '../exports';
+import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../constants';
+import { type FormKitStoreApi, createFormKitStore } from '../exports';
+import type { FormsNodeTree } from '../types';
 
 vi.mock('../composeFormsNodeTree', () => ({
   composeFormsNodeTree: vi.fn(),
 }));
-
 
 describe('formsStore', () => {
   let store: FormKitStoreApi;

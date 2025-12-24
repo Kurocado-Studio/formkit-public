@@ -1,8 +1,8 @@
 import type { Question } from '@kurocado-studio/formkit-ui-models';
 import { get, set } from 'lodash-es';
 
-import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../constants';
 import { composeFormsNodeTree } from '../composeFormsNodeTree';
+import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../constants';
 import type { FormsStore, FormsStoreApiNames, StoreCreator } from '../types';
 
 export const formsStore: StoreCreator<FormsStore> = (setState, getState) => {

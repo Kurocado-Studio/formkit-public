@@ -1,7 +1,8 @@
-import { sectionsStore } from './sections.store';
-import type { SectionsStore } from '../types';
-import { type StoreApi, createStore } from 'zustand/vanilla';
 import { beforeEach, describe, expect, it } from 'vitest';
+import { type StoreApi, createStore } from 'zustand/vanilla';
+
+import type { SectionsStore } from '../types';
+import { sectionsStore } from './sections.store';
 
 describe('sectionsStore', () => {
   let store: StoreApi<SectionsStore>;
