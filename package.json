@@ -24,7 +24,7 @@
   "devDependencies": {
     "@flydotio/dockerfile": "^0.7.10",
     "@internal/config": "workspace:*",
-    "@kurocado-studio/qa": "2.0.1",
+    "@kurocado-studio/qa": "1.5.1-develop.1",
     "@kurocado-studio/styleguide": "2.6.0-develop.17",
     "@tailwindcss/postcss": "^4.1.13",
     "@tailwindcss/typography": "^0.5.16",

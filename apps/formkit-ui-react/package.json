@@ -21,18 +21,7 @@
     "typecheck": "tsc --noEmit --pretty",
     "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build",
-    "setup": "pnpm clean && pnpm i && pnpm build",
-    "use:local-ui": "pnpm remove @kurocado-studio/ui && pnpm add @kurocado-studio/ui@file:../design-system/packages/ui",
-    "use:remote-ui": "pnpm remove @kurocado-studio/ui && pnpm add @kurocado-studio/ui@latest",
-    "use:remote-html-forms": "pnpm remove @kurocado-studio/html-forms && pnpm add @kurocado-studio/html-forms@file:../platform/teams/dev-experience/packages/html-forms",
-    "use:local-html-forms": "pnpm remove @kurocado-studio/html-forms && pnpm add @kurocado-studio/html-forms@file:../platform/teams/dev-experience/packages/html-forms",
-    "use:build-local-html-package": "cd ../platform/teams/dev-experience/packages/html-forms && pnpm build",
-    "use:sync-local-html-package": "pnpm clean && pnpm add @kurocado-studio/html-forms@file:../platform/packages/dev-experience/html-forms && pnpm i",
-    "ui:local:lib": "pnpm add @kurocado-studio/ui-react-research-and-development@file:../../../design-system/packages/ui",
-    "ui:canary:lib": "pnpm add @kurocado-studio/ui-react-research-and-development@canary",
-    "ui:published:lib": "pnpm add @kurocado-studio/ui-react-research-and-development@latest",
-    "ui:local:sync": "cd ../design-system-research-and-development/packages/ui-research-and-development && pnpm run build && cd - && pnpm install @kurocado-studio/ui-react-research-and-development@file:../design-system-research-and-development/packages/ui-research-and-development",
-    "ui:sync:dev": "pnpm clean && pnpm ui:local:sync && pnpm use:build-local-html-package && pnpm use:sync-local-html-package && pnpm i && pnpm dev"
+    "setup": "pnpm clean && pnpm i && pnpm build"
   },
   "lint-staged": {
     "*": ["pnpm run prettier-fix"],
