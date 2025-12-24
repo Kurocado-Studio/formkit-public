@@ -10,7 +10,10 @@ export {
   KUROCADO_STUDIO_ORGANIZATION_ID_FORMKIT,
   KUROCADO_STUDIO_DEMO_FORM_ID,
 } from '@kurocado-studio/formkit-ui-models';
-export { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '@kurocado-studio/formkit-store';
+export {
+  DEFAULT_API_STATE,
+  EMPTY_NODE_TREE,
+} from '@kurocado-studio/formkit-store';
 
 export const CONTAINER_MAX_WIDTH = 'w-full mx-auto max-w-[2440px]';
 

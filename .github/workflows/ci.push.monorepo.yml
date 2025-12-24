@@ -15,7 +15,7 @@ on:
 
 jobs:
   lint:
-    uses: kurocado-studio/platform/.github/workflows/workflow.lint.yml@main
+    uses: kurocado-studio/devops/.github/workflows/workflow.lint.yml@main
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -24,7 +24,7 @@ jobs:
 
   test:
     needs: lint
-    uses: kurocado-studio/platform/.github/workflows/workflow.test.yml@main
+    uses: kurocado-studio/devops/.github/workflows/workflow.test.yml@main
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -33,7 +33,7 @@ jobs:
 
   document:
     needs: test
-    uses: kurocado-studio/platform/.github/workflows/workflow.document.yml@main
+    uses: kurocado-studio/devops/.github/workflows/workflow.document.yml@main
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -42,7 +42,7 @@ jobs:
 
   release:
     needs: test
-    uses: kurocado-studio/platform/.github/workflows/workflow.release.yml@main
+    uses: kurocado-studio/devops/.github/workflows/workflow.release.yml@main
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PAT_FORCE_PUSH: ${{ secrets.PAT_FORCE_PUSH }}
