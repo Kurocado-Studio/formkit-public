@@ -1,10 +1,10 @@
 import { get } from 'lodash-es';
 import { type StoreApi, createStore } from 'zustand/vanilla';
 
-import { formsStore } from './stores/forms.store';
-import { questionsStore } from './stores/questions.store';
-import { sectionsStore } from './stores/sections.store';
-import type { FormKitStore } from './types';
+import { formsStore } from './infrastructure/stores/forms.store';
+import { questionsStore } from './infrastructure/stores/questions.store';
+import { sectionsStore } from './infrastructure/stores/sections.store';
+import type { FormKitStore } from './domain/types.ts';
 
 export type {
   ApiState,
@@ -17,11 +17,11 @@ export type {
   SectionNodeTree,
   SectionsStore,
   StoreCreator,
-} from './types';
+} from './domain/types';
 
-export { formsStore } from './stores/forms.store';
-export { questionsStore } from './stores/questions.store';
-export { sectionsStore } from './stores/sections.store';
+export { formsStore } from './infrastructure/stores/forms.store';
+export { questionsStore } from './infrastructure/stores/questions.store';
+export { sectionsStore } from './infrastructure/stores/sections.store';
 
 export type FormKitStoreApi = StoreApi<FormKitStore>;
 
@@ -72,6 +72,6 @@ export const createFormKitStore = (): FormKitStoreApi =>
 
 export const formKitStore = createFormKitStore();
 
-export { composeFormsNodeTree } from './composeFormsNodeTree';
+export { composeFormsNodeTree } from './application/composeFormsNodeTree.ts';
 
-export { DEFAULT_API_STATE, EMPTY_NODE_TREE } from './constants';
+export { DEFAULT_API_STATE, EMPTY_NODE_TREE } from './domain/constants.ts';

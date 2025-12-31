@@ -1,4 +1,4 @@
-import type { SectionsStore, StoreCreator } from '../types';
+import type { SectionsStore, StoreCreator } from '../../domain/types.ts';
 
 export const sectionsStore: StoreCreator<SectionsStore> = (setState) => {
   return {

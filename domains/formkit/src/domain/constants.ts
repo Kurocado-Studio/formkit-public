@@ -1,5 +1,5 @@
-import { composeFormsNodeTree } from './composeFormsNodeTree';
-import type { ApiState, FormsNodeTree } from './types';
+import { composeFormsNodeTree } from '../application/composeFormsNodeTree.ts';
+import type { ApiState, FormsNodeTree } from './types.ts';
 
 export const DEFAULT_API_STATE: ApiState = {
   isLoading: false,
