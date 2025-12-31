@@ -1,5 +1,5 @@
 import { useAxios } from '@kurocado-studio/axios-react';
-import { type FormKitStore } from '@kurocado-studio/formkit-store';
+import { type FormKitStore } from '@kurocado-studio/formkit';
 import type { Form } from '@kurocado-studio/formkit-ui-models';
 import { ReactTestingLibrary } from '@kurocado-studio/qa';
 

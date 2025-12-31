@@ -13,7 +13,7 @@ export {
 export {
   DEFAULT_API_STATE,
   EMPTY_NODE_TREE,
-} from '@kurocado-studio/formkit-store';
+} from '@kurocado-studio/formkit';
 
 export const CONTAINER_MAX_WIDTH = 'w-full mx-auto max-w-[2440px]';
 

@@ -3,7 +3,7 @@ import type { AxiosDataState } from '@kurocado-studio/axios-react';
 import type {
   FormsNodeTree,
   SectionNodeTree,
-} from '@kurocado-studio/formkit-store';
+} from '@kurocado-studio/formkit';
 import type {
   Form,
   Question,
@@ -29,7 +29,7 @@ export type {
   SectionNodeTree,
   SectionsStore,
   StoreCreator,
-} from '@kurocado-studio/formkit-store';
+} from '@kurocado-studio/formkit';
 
 export interface FormDesignerEditorDto {
   questionBeingEdited: Question;
