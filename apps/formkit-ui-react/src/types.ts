@@ -1,16 +1,12 @@
-// @ts-expect-error while we fix typings
-import type { AxiosDataState } from '@kurocado-studio/axios-react';
-import type {
-  FormsNodeTree,
-  SectionNodeTree,
-} from '@kurocado-studio/formkit';
 import type {
   Form,
+  FormkitServiceApi,
   Question,
   QuestionCreatorDto,
   Section,
+  SectionNodeTree,
   VariantCreatorDto,
-} from '@kurocado-studio/formkit-ui-models';
+} from '@kurocado-studio/formkit';
 import type { PolymorphicMotionProperties } from '@kurocado-studio/react-design-system';
 import type React from 'react';
 import { type ZodTypeAny, z } from 'zod';
@@ -56,11 +52,6 @@ export interface TextFieldQuestionUpdaterDto {
 export interface FormUpdaterDto {
   updatedProperties: FormNodeFormSchema;
 }
-
-export type UseGetFormById = () => {
-  formById: AxiosDataState<Form>;
-  getFormById: (id: string) => Promise<Form>;
-};
 
 export type FormsNodeTreeFallback = {
   [formId: string]: Omit<Form, 'sections'> & {
@@ -110,8 +101,8 @@ export type UseUpdateFormUseCase = () => {
   executeUpdateForm: (payload: FormUpdaterDto) => void;
 };
 
-export type UseGetFormByIdUseCase = () => {
-  executeGetFormById: (payload: { id: string }) => Promise<FormsNodeTree>;
+export type UseGetFormById = () => {
+  handleGetForm: FormkitServiceApi['handleLoadForm'];
 };
 
 export type PanelsAndModalsMapComponentMap = {

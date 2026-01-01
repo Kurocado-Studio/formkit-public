@@ -1,8 +1,11 @@
-import { type Form, VariantEnum } from '@kurocado-studio/formkit-ui-models';
+import {
+  type Form,
+  type SectionNodeTree,
+  VariantEnum,
+} from '@kurocado-studio/formkit-ui-models';
 import { describe, expect, it } from 'vitest';
 
 import { composeFormsNodeTree } from './composeFormsNodeTree.ts';
-import { type SectionNodeTree } from '../domain/types.ts';
 
 describe('composeFormsNodeTree', () => {
   const testForm: Form[] = [

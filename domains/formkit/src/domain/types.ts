@@ -1,8 +1,9 @@
 import type {
   Form,
+  FormsNodeTree,
   Question,
-  Section,
 } from '@kurocado-studio/formkit-ui-models';
+import { type AxiosRequestConfig } from 'axios';
 import type { StoreApi } from 'zustand/vanilla';
 
 export type StoreCreator<T> = (
@@ -15,19 +16,6 @@ export type ApiState = {
   isLoading: boolean;
   error?: unknown;
 };
-
-export type FormsNodeTree = Record<
-  string,
-  Omit<Form, 'sections'> & {
-    sections: Record<string, SectionNodeTree>;
-  }
->;
-
-export interface SectionNodeTree extends Omit<Section, 'questions'> {
-  questions: {
-    [questionId: string]: Question;
-  };
-}
 
 export type FormsStoreApiNames = 'getFormByIdState';
 
@@ -78,3 +66,50 @@ export type FormKitStore = FormsStore &
       toQuestions: Array<string>;
     };
   };
+
+export interface FormKitServiceDependencies {
+  formikStore: FormKitStore;
+}
+
+export type AxiosRequestFunction<T, K = undefined> = (
+  options: AxiosRequestConfig<K extends undefined ? T : K>,
+) => Promise<void>;
+
+export type AxiosHandler<
+  T extends Record<string, unknown>,
+  K extends Record<string, unknown> | undefined = undefined,
+> = (
+  ...axiosRequestConfig: Parameters<AxiosRequestFunction<T, K>>
+) => Promise<K extends undefined ? T : K>;
+
+export interface GetFormByIdApi {
+  handleGetFormById: (payload: {
+    id: string;
+    axiosHandler: AxiosHandler<Form>;
+  }) => Promise<Form>;
+  handleLoadFormById: (payload: { form: Form }) => Form;
+}
+
+export type GetFormByIdUseCase = (
+  payload: FormKitServiceDependencies,
+) => GetFormByIdApi;
+
+export type FormKitService = (
+  payload: FormKitServiceDependencies,
+) => FormkitServiceApi;
+
+type LoadById = {
+  id: string;
+  form?: never;
+  axiosHandler: AxiosHandler<Form>;
+};
+
+type LoadByForm = {
+  form: Form;
+  id?: never;
+};
+export type LoadFormPayload = LoadById | LoadByForm;
+
+export interface FormkitServiceApi {
+  handleLoadForm(payload: LoadFormPayload): Promise<Form>;
+}

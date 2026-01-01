@@ -1,4 +1,4 @@
-import { VariantEnum } from '@kurocado-studio/formkit-ui-models';
+import { VariantEnum } from '@kurocado-studio/formkit';
 import { ReactTestingLibrary } from '@kurocado-studio/qa';
 import { Controls } from '@kurocado-studio/ui-react-research-and-development';
 import { get } from 'lodash-es';

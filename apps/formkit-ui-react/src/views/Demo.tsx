@@ -1,6 +1,13 @@
 // TODO: update styleguide to disable this rule on files ending with (.tsx)
 /* eslint-disable unicorn/no-null */
-import type { Form, Question } from '@kurocado-studio/formkit-ui-models';
+import {
+  CONTAINER_MAX_WIDTH,
+  EMPTY_FORM_NODE,
+  type Form,
+  GRID_LAYOUT,
+  KUROCADO_STUDIO_DEMO_FORM_ID,
+  type Question,
+} from '@kurocado-studio/formkit';
 import { useFadeAnimations } from '@kurocado-studio/react-design-system';
 import {
   Controls,
@@ -20,12 +27,6 @@ import { Header } from '../components/Header';
 import { NodeDesignerControls } from '../components/NodeDesignerControls';
 import { NodeRenderer } from '../components/NodeRenderer';
 import { QuestionCreator } from '../components/QuestionCreator';
-import {
-  CONTAINER_MAX_WIDTH,
-  EMPTY_FORM_NODE,
-  GRID_LAYOUT,
-  KUROCADO_STUDIO_DEMO_FORM_ID,
-} from '../config/constants';
 
 const questionControlWithinGridClassNamesOverwrites = [
   'z-20 col-span-12 mb-2 w-full',
@@ -34,7 +35,7 @@ const questionControlWithinGridClassNamesOverwrites = [
 ];
 
 export function Demo(): React.ReactNode {
-  const { executeGetFormById } = useFormKitService();
+  const { handleGetForm } = useFormKitService();
 
   const { getFormByIdState, formsNodeTree, formIdBeingEdited, composePaths } =
     useFormKitStore();
@@ -68,12 +69,12 @@ export function Demo(): React.ReactNode {
       formIdBeingEdited === undefined &&
       !hasGetFormByIdApiError
     ) {
-      executeGetFormById({
+      handleGetForm({
         id: KUROCADO_STUDIO_DEMO_FORM_ID,
       }).then();
     }
   }, [
-    executeGetFormById,
+    handleGetForm,
     hasGetFormByIdApiError,
     isLoadingGetFormByIdApi,
     formIdBeingEdited,

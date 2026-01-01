@@ -1,12 +1,13 @@
 import { useAxios } from '@kurocado-studio/axios-react';
-import { type Question, VariantEnum } from '@kurocado-studio/formkit-ui-models';
-import React from 'react';
-
-import { axiosFormKitInstance } from '../../../config/axiosFormKitInstance';
 import {
   EMPTY_QUESTION_NODE,
   KUROCADO_STUDIO_ORGANIZATION_ID_FORMKIT,
-} from '../../../config/constants';
+  type Question,
+  VariantEnum,
+} from '@kurocado-studio/formkit';
+import React from 'react';
+
+import { axiosFormKitInstance } from '../../../config/axiosFormKitInstance';
 import { useFormDesignerContext } from '../../../context/FormDesignerContext';
 import { usePanelsAndModalsContext } from '../../../context/PanelsAndModalsContext';
 import {

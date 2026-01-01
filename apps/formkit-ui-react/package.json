@@ -24,7 +24,9 @@
     "setup": "pnpm clean && pnpm i && pnpm build"
   },
   "lint-staged": {
-    "*": ["pnpm run prettier-fix"],
+    "*": [
+      "pnpm run prettier-fix"
+    ],
     "**/*.{ts,tsx}": [
       "pnpm run prettier-fix",
       "pnpm run eslint-fix",
@@ -37,7 +39,6 @@
     "@conform-to/zod": "^1.9.0",
     "@kurocado-studio/axios-react": "^1.0.0",
     "@kurocado-studio/formkit": "workspace:*",
-    "@kurocado-studio/formkit-ui-models": "1.0.0-develop.2",
     "@kurocado-studio/formkit-ui-react-renderer": "1.0.0-develop.3",
     "@kurocado-studio/react-design-system": "1.0.0-develop.24",
     "@kurocado-studio/react-utils": "1.0.0-develop.1",
@@ -47,9 +48,9 @@
     "framer-motion": "^12.6.2",
     "isbot": "^5.1.25",
     "lodash-es": "^4.17.21",
-    "react": "19.0.0",
+    "react": "19.2.3",
     "react-aria": "^3.43.2",
-    "react-dom": "19.0.0",
+    "react-dom": "19.2.3",
     "react18-json-view": "^0.2.9",
     "tailwind-merge": "^3.1.0",
     "zod": "^3.23.0",
@@ -59,6 +60,8 @@
     "node": ">=20"
   },
   "eslintConfig": {
-    "extends": ["plugin:storybook/recommended"]
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }

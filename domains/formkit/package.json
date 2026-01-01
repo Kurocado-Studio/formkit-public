@@ -28,7 +28,9 @@
     "typecheck": "tsc --noEmit --pretty"
   },
   "dependencies": {
+    "@kurocado-studio/axios-node": "1.0.0-develop.1",
     "@kurocado-studio/formkit-ui-models": "1.0.0-develop.2",
+    "axios": "^1.12.0",
     "lodash-es": "^4.17.21",
     "zustand": "^5.0.8"
   },

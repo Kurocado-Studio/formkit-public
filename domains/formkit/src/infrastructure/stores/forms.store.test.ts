@@ -1,12 +1,15 @@
 import { VariantEnum } from '@kurocado-studio/formkit-ui-models';
-import { type Form, type Question } from '@kurocado-studio/formkit-ui-models';
+import type {
+  Form,
+  FormsNodeTree,
+  Question,
+} from '@kurocado-studio/formkit-ui-models';
 import { get } from 'lodash-es';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { composeFormsNodeTree } from '../../application/composeFormsNodeTree.ts';
-import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../../domain/constants.ts';
-import { type FormKitStoreApi, createFormKitStore } from '../../exports.ts';
-import type { FormsNodeTree } from '../../domain/types.ts';
+import { composeFormsNodeTree } from '../composeFormsNodeTree.ts';
+import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../../domain/constants';
+import { type FormKitStoreApi, createFormKitStore } from '../../exports';
 
 vi.mock('../composeFormsNodeTree', () => ({
   composeFormsNodeTree: vi.fn(),

@@ -4,7 +4,7 @@ import {
   type Question,
   type Section,
   VariantEnum,
-} from '@kurocado-studio/formkit-ui-models';
+} from '@kurocado-studio/formkit';
 
 import { FormsNodeTree, SectionNodeTree } from '../types';
 

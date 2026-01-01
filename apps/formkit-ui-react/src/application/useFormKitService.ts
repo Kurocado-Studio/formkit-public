@@ -1,4 +1,4 @@
-import { useGetFormByIdUseCase } from './usecase/Forms/useGetFormById.usecase';
+import { useGetFormById } from './usecase/Forms/useGetFormById.ts';
 import { useReadFormUseCase } from './usecase/Forms/useReadForm.usecase';
 import { useUpdateFormUseCase } from './usecase/Forms/useUpdateForm.usecase';
 import { useCreateTextFieldQuestionUseCase } from './usecase/Questions/useCreateQuestion.usecase';
@@ -6,7 +6,7 @@ import { useReadQuestionUseCase } from './usecase/Questions/useReadQuestion.usec
 import { useUpdateQuestionUseCase } from './usecase/Questions/useUpdateQuestion.usecase';
 
 export const useFormKitService = () => {
-  const { executeGetFormById } = useGetFormByIdUseCase();
+  const { handleGetForm } = useGetFormById();
   const { executeReadForm } = useReadFormUseCase();
   const { executeReadQuestion } = useReadQuestionUseCase();
   const { executeUpdateQuestion } = useUpdateQuestionUseCase();
@@ -18,7 +18,7 @@ export const useFormKitService = () => {
     executeUpdateForm,
     executeUpdateQuestion,
     executeReadQuestion,
-    executeGetFormById,
+    handleGetForm,
     executeCreateTextFieldQuestion,
     executeReadForm,
   };
