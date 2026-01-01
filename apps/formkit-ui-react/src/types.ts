@@ -1,6 +1,6 @@
 import type {
   Form,
-  FormkitServiceApi,
+  LoadFormPayload,
   Question,
   QuestionCreatorDto,
   Section,
@@ -102,7 +102,7 @@ export type UseUpdateFormUseCase = () => {
 };
 
 export type UseGetFormById = () => {
-  handleGetForm: FormkitServiceApi['handleLoadForm'];
+  handleGetForm: (payload: LoadFormPayload) => Promise<Form>;
 };
 
 export type PanelsAndModalsMapComponentMap = {

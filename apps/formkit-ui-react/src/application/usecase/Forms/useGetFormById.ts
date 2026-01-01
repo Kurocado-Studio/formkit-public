@@ -1,7 +1,7 @@
 import { useAxios } from '@kurocado-studio/axios-react';
 import {
   type Form,
-  type FormkitServiceApi,
+  type LoadFormPayload,
   formKitService,
 } from '@kurocado-studio/formkit';
 import React from 'react';
@@ -28,7 +28,7 @@ export const useGetFormById: UseGetFormById = () => {
     );
   }, [formikStore.handleUpdateFormsStoreApiState, error, isLoading]);
 
-  const handleGetForm: FormkitServiceApi['handleLoadForm'] = async (
+  const handleGetForm: (payload: LoadFormPayload) => Promise<Form> = async (
     payload,
   ) => {
     resetState();
