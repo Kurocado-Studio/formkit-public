@@ -6,11 +6,12 @@ export const formKitService: FormKitService = (payload) => {
 
   const handleLoadForm: FormkitServiceApi['handleLoadForm'] = async (
     payload,
+    axiosHandler,
   ) => {
-    if ('id' in payload && 'axiosHandler' in payload) {
-      return handleGetFormById(payload);
+    if ('id' in payload) {
+      return handleGetFormById({ ...payload, axiosHandler });
     }
-    return handleLoadFormById({ form: payload.form });
+    return handleLoadFormById(payload);
   };
 
   return {

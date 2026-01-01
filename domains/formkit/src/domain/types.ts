@@ -100,16 +100,16 @@ export type FormKitService = (
 
 type LoadById = {
   id: string;
-  form?: never;
-  axiosHandler: AxiosHandler<Form>;
 };
 
 type LoadByForm = {
   form: Form;
-  id?: never;
 };
 export type LoadFormPayload = LoadById | LoadByForm;
 
 export interface FormkitServiceApi {
-  handleLoadForm(payload: LoadFormPayload): Promise<Form>;
+  handleLoadForm(
+    payload: LoadFormPayload,
+    axiosHandler: AxiosHandler<Form>,
+  ): Promise<Form>;
 }

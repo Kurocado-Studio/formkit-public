@@ -32,7 +32,7 @@ export const useGetFormById: UseGetFormById = () => {
     payload,
   ) => {
     resetState();
-    return handleLoadForm({ ...payload, axiosHandler });
+    return handleLoadForm(payload, axiosHandler);
   };
 
   return { handleGetForm };
