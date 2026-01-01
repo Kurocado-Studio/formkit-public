@@ -1,11 +1,12 @@
 import type { Question } from '@kurocado-studio/formkit-ui-models';
 import { get, set } from 'lodash-es';
+import { type StateCreator } from 'zustand';
 
-import { composeFormsNodeTree } from '../composeFormsNodeTree';
-import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../constants';
-import type { FormsStore, FormsStoreApiNames, StoreCreator } from '../types';
+import { composeFormsNodeTree } from '../composeFormsNodeTree.ts';
+import { DEFAULT_API_STATE, EMPTY_NODE_TREE } from '../../domain/constants';
+import type { FormsStore, FormsStoreApiNames } from '../../domain/types';
 
-export const formsStore: StoreCreator<FormsStore> = (setState, getState) => {
+export const formsStore: StateCreator<FormsStore> = (setState, getState) => {
   return {
     getFormByIdState: DEFAULT_API_STATE,
     formIdBeingEdited: undefined,

@@ -73,18 +73,16 @@
   "engines": {
     "node": ">=22.14.0"
   },
-  "overrides": {
-    "@types/react": "19.1.10",
-    "@types/react-dom": "19.1.10",
-    "vite": "5.2.8",
-    "typescript": "5.1.6",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
-  },
   "pnpm": {
     "overrides": {
+      "@types/react": "19.2.3",
+      "@types/react-dom": "19.2.3",
       "esbuild": "0.25.12",
-      "rollup": "4.52.0"
+      "react": "19.2.3",
+      "react-dom": "19.2.3",
+      "rollup": "4.52.0",
+      "typescript": "5.1.6",
+      "vite": "5.2.8"
     }
   }
 }

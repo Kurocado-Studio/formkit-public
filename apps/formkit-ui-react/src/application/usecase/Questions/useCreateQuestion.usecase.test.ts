@@ -1,5 +1,5 @@
 import { useAxios } from '@kurocado-studio/axios-react';
-import { VariantEnum } from '@kurocado-studio/formkit-ui-models';
+import { VariantEnum } from '@kurocado-studio/formkit';
 import { ReactTestingLibrary } from '@kurocado-studio/qa';
 
 import { EMPTY_QUESTION_NODE } from '../../../config/constants';

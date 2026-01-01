@@ -1,7 +1,9 @@
-import type { Form, Section } from '@kurocado-studio/formkit-ui-models';
+import type {
+  Form,
+  FormsNodeTree,
+  Section,
+} from '@kurocado-studio/formkit-ui-models';
 import { get, keyBy } from 'lodash-es';
-
-import type { FormsNodeTree } from './types';
 
 export function composeFormsNodeTree(apiForms: Form[] = []): FormsNodeTree {
   return keyBy(

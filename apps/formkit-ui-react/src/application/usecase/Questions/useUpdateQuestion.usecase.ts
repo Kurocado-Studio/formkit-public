@@ -1,4 +1,4 @@
-import { type Question } from '@kurocado-studio/formkit-ui-models';
+import { type Question } from '@kurocado-studio/formkit';
 import { get, set } from 'lodash-es';
 
 import type { TextFieldNodeUpdaterSchema } from '../../../types';

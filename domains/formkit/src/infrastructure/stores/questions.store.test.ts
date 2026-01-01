@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { type StoreApi, createStore } from 'zustand/vanilla';
 
-import { DEFAULT_API_STATE } from '../constants';
-import type { QuestionStoreApiNames, QuestionsStore } from '../types';
+import { DEFAULT_API_STATE } from '../../domain/constants';
+import type { QuestionStoreApiNames, QuestionsStore } from '../../domain/types';
 import { questionsStore } from './questions.store';
 
 describe('questionsStore', () => {

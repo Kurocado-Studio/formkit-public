@@ -1,7 +1,7 @@
+import { VIEWPORT_WIDTH_TO_TRIGGER_MOBILE_PANEL } from '@kurocado-studio/formkit';
 import { useWindowSize } from '@kurocado-studio/react-utils';
 import { get } from 'lodash-es';
 
-import { VIEWPORT_WIDTH_TO_TRIGGER_MOBILE_PANEL } from '../../../config/constants';
 import { useFormDesignerContext } from '../../../context/FormDesignerContext';
 import { usePanelsAndModalsContext } from '../../../context/PanelsAndModalsContext';
 import {
