@@ -29,7 +29,7 @@ describe('useFormKitService', () => {
   it('should expose all expected service methods', () => {
     const { result } = renderHook(() => useFormKitService());
 
-    expect(result.current).toHaveProperty('executeGetFormById');
+    expect(result.current).toHaveProperty('handleGetForm');
     expect(result.current).toHaveProperty('executeReadForm');
     expect(result.current).toHaveProperty('executeReadQuestion');
     expect(result.current).toHaveProperty('executeUpdateQuestion');

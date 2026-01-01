@@ -62,10 +62,12 @@ describe('useGetFormById', () => {
     });
 
     expect(resetState).toHaveBeenCalled();
-    expect(handleLoadForm).toHaveBeenCalledWith({
-      id: 'form-1',
+    expect(handleLoadForm).toHaveBeenCalledWith(
+      {
+        id: 'form-1',
+      },
       axiosHandler,
-    });
+    );
     expect(response).toBe(expectedForm);
   });
 
