@@ -40,7 +40,7 @@
     "@kurocado-studio/axios-react": "^1.0.0",
     "@kurocado-studio/formkit": "workspace:*",
     "@kurocado-studio/formkit-ui-react-renderer": "1.0.0-develop.3",
-    "@kurocado-studio/react-design-system": "1.0.0-develop.24",
+    "@kurocado-studio/react-design-system": "1.0.0",
     "@kurocado-studio/react-utils": "1.0.0-develop.1",
     "@kurocado-studio/ui-react-research-and-development": "1.0.0-develop.17",
     "@react-aria/utils": "^3.30.1",
