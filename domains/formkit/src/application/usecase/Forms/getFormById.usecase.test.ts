@@ -7,6 +7,7 @@ import {
 } from '../../../domain/constants';
 import type { FormKitStore } from '../../../domain/types';
 import { getFormByIdUseCase } from './getFormById.usecase';
+import { get } from 'lodash-es';
 
 const createForm = (): Form => ({
   id: 'form-1',
@@ -61,7 +62,7 @@ describe('getFormByIdUseCase', () => {
       id: form.id,
     });
     expect(formikStore.handleUpdateSectionBeingEdited).toHaveBeenCalledWith({
-      id: form.sections[0].id,
+      id: get(form,['sections', 0, 'id']),
     });
     expect(formikStore.handleUpdateFormsStoreApiState).toHaveBeenCalledWith(
       { isLoading: false, error: undefined },
