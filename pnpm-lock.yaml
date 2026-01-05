@@ -28,8 +28,8 @@ importers:
         specifier: 2.0.0-alpha.2
         version: 2.0.0-alpha.2(@swc/core@1.15.8(@swc/helpers@0.5.18))(@testing-library/dom@10.4.1)(@types/debug@4.1.12)(@types/react@19.2.3)(@vue/compiler-sfc@3.5.26)(eslint@9.39.2(jiti@2.6.1))(lightningcss@1.30.2)(optionator@0.9.4)(prettier@3.7.4)(react@19.2.3)(rollup@4.52.0)(vite@5.2.8(@types/node@24.10.4)(lightningcss@1.30.2))(vitest-axe@0.1.0(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.4)(jsdom@26.1.0)(lightningcss@1.30.2)))
       '@kurocado-studio/styleguide':
-        specifier: 2.6.0-develop.17
-        version: 2.6.0-develop.17(pcm2v6yxbeim2ehx67ucdgjjqu)
+        specifier: 2.7.1
+        version: 2.7.1(pcm2v6yxbeim2ehx67ucdgjjqu)
       '@tailwindcss/postcss':
         specifier: ^4.1.13
         version: 4.1.18
@@ -1051,8 +1051,8 @@ packages:
   '@kurocado-studio/react-utils@1.0.0-develop.1':
     resolution: {integrity: sha512-9bCZt9DmQ4hJ5nxdd8WUaXJeoV/ePQCM8DZyz4tAe9NLwr37mfZHLY1dxtZ+uMppoh8JSgjz0qpPcap5sJAj1g==}
 
-  '@kurocado-studio/styleguide@2.6.0-develop.17':
-    resolution: {integrity: sha512-a+rR00+EGCmj1iS5wlMW9399YopER0nlSc0HsHuT+Z6vQise8jMMFiTQ2GtpYy/WzbGpHRbx3ZNgQa7SHI63Ug==}
+  '@kurocado-studio/styleguide@2.7.1':
+    resolution: {integrity: sha512-cYu6sblV4im5c8RvRGATI9LqgDs9wJB3EF+wI6ijqc7xmz+MKrnYk9SwTceq1hnCN8Ie+uwpqQzeaITBmkIkOg==}
     engines: {node: '>=20'}
     peerDependencies:
       '@babel/eslint-parser': ^7.26.5
@@ -8688,7 +8688,7 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@kurocado-studio/styleguide@2.6.0-develop.17(pcm2v6yxbeim2ehx67ucdgjjqu)':
+  '@kurocado-studio/styleguide@2.7.1(pcm2v6yxbeim2ehx67ucdgjjqu)':
     dependencies:
       '@babel/eslint-parser': 7.28.5(@babel/core@7.28.5)(eslint@9.39.2(jiti@2.6.1))
       '@commitlint/cli': 19.8.1(@types/node@24.10.4)(typescript@5.1.6)
