@@ -199,8 +199,8 @@ importers:
   domains/formkit:
     dependencies:
       '@kurocado-studio/axios-node':
-        specifier: 1.0.0-develop.1
-        version: 1.0.0-develop.1(typescript@5.1.6)
+        specifier: 1.0.3
+        version: 1.0.3(typescript@5.1.6)
       '@kurocado-studio/formkit-ui-models':
         specifier: 1.0.0-develop.2
         version: 1.0.0-develop.2
@@ -1018,8 +1018,8 @@ packages:
   '@jspm/core@2.1.0':
     resolution: {integrity: sha512-3sRl+pkyFY/kLmHl0cgHiFp2xEqErA8N3ECjMs7serSUBmoJ70lBa0PG5t0IM6WJgdZNyyI0R8YFfi5wM8+mzg==}
 
-  '@kurocado-studio/axios-node@1.0.0-develop.1':
-    resolution: {integrity: sha512-0WXy47P+mCF/kCM7WQRMHAGfUl+6cQt/eF3bSKfzJXCdekhMRSFypPF66hbG4OOuR5pNM40KsIANl16phNtUyg==}
+  '@kurocado-studio/axios-node@1.0.3':
+    resolution: {integrity: sha512-8Kh50p6c4FlEPhoEPIhUAlLVrTQc++QZYTQITwEPlerROq3K0gH7UNUbG2V9rClSugr1ir9P2e4p9aHVmc9sKQ==}
 
   '@kurocado-studio/axios-react@1.0.2':
     resolution: {integrity: sha512-HlvB5FMSfw4zkNUS48dYKBO+u8J0sfR88c+qP1jXPPKVUCmY+lMN25AZ+pBiAPtAPdeL9aIYzVSt9y63nhV1TQ==}
@@ -8520,7 +8520,7 @@ snapshots:
 
   '@jspm/core@2.1.0': {}
 
-  '@kurocado-studio/axios-node@1.0.0-develop.1(typescript@5.1.6)':
+  '@kurocado-studio/axios-node@1.0.3(typescript@5.1.6)':
     dependencies:
       axios: 1.13.2
       lodash-es: 4.17.22
