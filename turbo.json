@@ -1,0 +1,79 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "internal:build": {
+      "cache": false,
+      "outputs": ["dist/**"],
+      "dependsOn": ["^internal:build"]
+    },
+    "domain:build": {
+      "cache": false,
+      "outputs": ["dist/**"],
+      "dependsOn": ["^internal:build", "^domain:build"]
+    },
+    "setup": {
+      "dependsOn": ["^internal:build", "^domain:build", "^build"],
+      "cache": false
+    },
+    "build": {
+      "cache": false,
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**", "storybook-static/**"],
+      "dependsOn": ["^internal:build", "^domain:build", "^build"]
+    },
+    "typecheck": {
+      "cache": false,
+      "dependsOn": []
+    },
+    "test": {
+      "cache": false,
+      "dependsOn": []
+    },
+    "lint": {
+      "cache": false,
+      "dependsOn": []
+    },
+    "lint:fix": {
+      "cache": false,
+      "dependsOn": []
+    },
+    "prettier:fix": {
+      "cache": false,
+      "dependsOn": []
+    },
+    "prettier:check": {
+      "cache": false,
+      "dependsOn": []
+    },
+    "internal:dev": {
+      "dependsOn": [],
+      "persistent": true
+    },
+    "dev": {
+      "cache": false,
+      "dependsOn": ["^internal:build", "^domain:build"],
+      "persistent": true
+    },
+    "vite:watch": {
+      "cache": false,
+      "dependsOn": ["^internal:build", "^domain:build"],
+      "persistent": true
+    },
+    "storybook": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "preview-storybook": {
+      "dependsOn": ["^build"]
+    },
+    "internal:preflight": {
+      "dependsOn": ["^build"]
+    },
+    "internal:config": {
+      "dependsOn": ["^build"]
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}

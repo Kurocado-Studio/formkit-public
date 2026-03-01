@@ -1,0 +1,14 @@
+name: formkit-service
+id: ari:cloud:compass:bd0a3342-915f-4b2e-9c6f-c1004471898b:component/cd70f7d9-4b7b-4cf5-bcc9-02e9815145d9/6b7d6cc3-bd44-400f-b9ab-0bf77e4251c7
+description: null
+configVersion: 1
+typeId: SERVICE
+fields:
+  tier: 4
+links: []
+relationships:
+  DEPENDS_ON: []
+labels:
+  - language:typescript
+  - source:github
+customFields: null
