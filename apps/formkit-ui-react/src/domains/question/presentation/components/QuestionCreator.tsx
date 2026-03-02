@@ -176,9 +176,8 @@ export const QuestionCreators = () => {
 function composeEmptyQuestionCreator(store: FormKitStore) {
   const formsNodeTree = store.formsNodeTree;
   const { toQuestions } = composePaths(store);
-  const numberOfQuestions = Object.keys(
-    get(formsNodeTree, toQuestions, {}),
-  ).length + 1;
+  const numberOfQuestions =
+    Object.keys(get(formsNodeTree, toQuestions, {})).length + 1;
 
   const question = `Untitled Question ${numberOfQuestions}`;
   const name = `question${numberOfQuestions}`;

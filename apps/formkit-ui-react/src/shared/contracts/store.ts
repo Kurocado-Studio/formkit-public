@@ -1,4 +1,7 @@
-export type { FormsNodeTree, SectionNodeTree } from '@kurocado-studio/formkit-ui-models';
+export type {
+  FormsNodeTree,
+  SectionNodeTree,
+} from '@kurocado-studio/formkit-ui-models';
 export type {
   ApiState,
   FormsStore,
