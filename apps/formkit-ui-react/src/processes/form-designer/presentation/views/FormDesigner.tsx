@@ -1,9 +1,4 @@
-import {
-  AnimateMotionPresence,
-  DirectionEnum,
-  useFadeAnimations,
-  useFadeIn,
-} from '@kurocado-studio/react-design-system';
+import { useFadeAnimations } from '@kurocado-studio/react-design-system';
 import {
   Grid,
   ThreeColumns,
@@ -13,14 +8,13 @@ import {
 import * as React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { usePanelsContext } from '@/app/context/PanelsContext';
-import { FormNodeEditor } from '@/domains/form/presentation/components/FormConfiguration';
 import { FormRenderer } from '@/domains/form/presentation/components/FormRenderer';
 import { FormTitle } from '@/domains/form/presentation/components/FormTitle';
 import { QuestionCreators } from '@/domains/question/presentation/components/QuestionCreator';
 import { VariantConfigurationPanel } from '@/domains/question/presentation/components/variants/VariantConfigurationPanel';
 import { VariantConfigurationPanel2 } from '@/domains/question/presentation/components/variants/VariantConfigurationPanel2';
 import { useFormKitService } from '@/processes/form-designer/application/useFormKitService.ts';
+import { FormDesignerPanels } from '@/processes/form-designer/presentation/components/FormDesignerPanels.tsx';
 import {
   FormDesignerSidebar,
   FormDesignerSidebarCardContent,
@@ -29,24 +23,11 @@ import {
 } from '@/processes/form-designer/presentation/components/FormDesignerSidebar';
 import { Header } from '@/processes/form-designer/presentation/components/Header';
 import { useFormKitStore } from '@/processes/form-designer/state/useFormKitStore';
-import { PanelsViewsEnum } from '@/shared/contracts/enums';
 
 export const FormDesigner = () => {
   const { fadeInLeft, fadeInRight, fadeInTop } = useFadeAnimations();
-  const { panelsState } = usePanelsContext();
   const formIdBeingEdited = useFormKitStore((state) => state.formIdBeingEdited);
-
   const { handleReadForm } = useFormKitService();
-
-  const questionEditorFadeInConfig = useFadeIn({
-    onEnterDirection: DirectionEnum.LEFT,
-    onExitDirection: DirectionEnum.LEFT,
-  });
-
-  const formEditorFadeInConfig = useFadeIn({
-    onEnterDirection: DirectionEnum.RIGHT,
-    onExitDirection: DirectionEnum.RIGHT,
-  });
 
   const handleReadCurrentFormById = React.useCallback((): void => {
     handleReadForm({ id: formIdBeingEdited });
@@ -98,32 +79,7 @@ export const FormDesigner = () => {
           className={'z-9999 hidden lg:block'}
           {...fadeInRight.primary}
         >
-          <AnimateMotionPresence isVisible mode={'sync'}>
-            {panelsState[PanelsViewsEnum.FORM_CONFIGURATION] && (
-              <FormDesignerSidebar {...formEditorFadeInConfig}>
-                <FormDesignerSidebarCardHeader>
-                  <FormDesignerSidebarCardTitle>
-                    Form configuration
-                  </FormDesignerSidebarCardTitle>
-                </FormDesignerSidebarCardHeader>
-                <FormDesignerSidebarCardContent>
-                  <FormNodeEditor />
-                </FormDesignerSidebarCardContent>
-              </FormDesignerSidebar>
-            )}
-            {panelsState[PanelsViewsEnum.QUESTION_CONFIGURATION] && (
-              <FormDesignerSidebar {...questionEditorFadeInConfig}>
-                <FormDesignerSidebarCardHeader>
-                  <FormDesignerSidebarCardTitle>
-                    Question configuration
-                  </FormDesignerSidebarCardTitle>
-                </FormDesignerSidebarCardHeader>
-                <FormDesignerSidebarCardContent>
-                  QUESTION EDITOR PLACEHOLDER
-                </FormDesignerSidebarCardContent>
-              </FormDesignerSidebar>
-            )}
-          </AnimateMotionPresence>
+          <FormDesignerPanels />
         </ThreeColumns>
       </Grid>
     </main>

@@ -22,17 +22,17 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "systemhaus:setup": "pnpm --dir ../../../systemhaus/packages/shadcn-systemhaus-react run undoPrepublishOnly && pnpm --dir ../../../systemhaus/packages/shadcn-systemhaus-react install && pnpm --dir ../../../systemhaus/packages/shadcn-systemhaus-react build && pnpm --dir ../../../systemhaus/packages/shadcn-systemhaus-react prepublishOnly",
+    "formkit:renderer:setup": "pnpm --dir ../../../formkit/packages/formkit-ui-react-renderer run build && pnpm i @kurocado-studio/formkit-ui-react-renderer@file:../../../formkit/packages/formkit-ui-react-renderer",
     "formkit:store:setup": "pnpm --dir ../../../formkit/packages/formkit-ui-store run build && pnpm i @kurocado-studio/formkit-ui-store@file:../../../formkit/packages/formkit-ui-store",
     "formkit:models:setup": "pnpm --dir ../../../formkit/packages/formkit-ui-models run build && pnpm i @kurocado-studio/formkit-ui-models@file:../../../formkit/packages/formkit-ui-models",
     "go:systemhaus:react": "cd ../../@kurocado-studio/shadcn-systemhaus-react && pnpm undoPrepublishOnly && pnpm i && pnpm build && pnpm prepublishOnly",
     "build:systemhaus:react": "pnpm run go:systemhaus:react && pnpm i @kurocado-studio/shadcn-systemhaus-react@file:../../@kurocado-studio/shadcn-systemhaus-react",
     "setup": "pnpm clean && pnpm i && pnpm build",
+    "setup:canary": "pnpm i @kurocado-studio/shadcn-systemhaus-react@canary @kurocado-studio/formkit-ui-models@canary @kurocado-studio/formkit-ui-store@canary",
     "local:setup": "pnpm clean && pnpm systemhaus:setup && pnpm formkit:store:setup && pnpm formkit:models:setup && pnpm i"
   },
   "lint-staged": {
-    "*": [
-      "pnpm run prettier-fix"
-    ],
+    "*": ["pnpm run prettier-fix"],
     "**/*.{ts,tsx}": [
       "pnpm run prettier-fix",
       "pnpm run eslint-fix",
@@ -44,12 +44,12 @@
     "@conform-to/react": "^1.10.1",
     "@conform-to/zod": "^1.9.0",
     "@kurocado-studio/axios-react": "^1.0.0",
-    "@kurocado-studio/formkit-ui-models": "1.0.1-develop.1",
+    "@kurocado-studio/formkit-ui-models": "file:../../../formkit/packages/formkit-ui-models",
     "@kurocado-studio/formkit-ui-react-renderer": "1.0.1-develop.1",
-    "@kurocado-studio/formkit-ui-store": "1.0.0-develop.1",
+    "@kurocado-studio/formkit-ui-store": "file:../../../formkit/packages/formkit-ui-store",
     "@kurocado-studio/react-design-system": "1.0.0-develop.24",
     "@kurocado-studio/react-utils": "1.0.0-develop.1",
-    "@kurocado-studio/shadcn-systemhaus-react": "1.0.0-develop.2",
+    "@kurocado-studio/shadcn-systemhaus-react": "file:../../../systemhaus/packages/shadcn-systemhaus-react",
     "@kurocado-studio/ui-react-research-and-development": "1.0.0-develop.17",
     "@react-aria/utils": "^3.30.1",
     "axios": "^1.12.0",
@@ -68,9 +68,7 @@
     "node": ">=20"
   },
   "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
+    "extends": ["plugin:storybook/recommended"]
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.0.1",

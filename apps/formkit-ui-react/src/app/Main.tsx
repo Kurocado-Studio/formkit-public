@@ -1,5 +1,6 @@
 import {
   KurocadoStudioThemeProvider,
+  // eslint-disable-next-line import/named -- design-system package export
   defaultSystemHausThemeVariables,
 } from '@kurocado-studio/react-design-system';
 import React from 'react';

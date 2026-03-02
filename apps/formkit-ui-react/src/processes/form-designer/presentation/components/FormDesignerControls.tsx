@@ -16,10 +16,8 @@ import {
 import type React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { usePanelsContext } from '@/app/context/PanelsContext';
 import { useFormKitService } from '@/processes/form-designer/application/useFormKitService';
 import { useFormKitStore } from '@/processes/form-designer/state/useFormKitStore';
-import { PanelsViewsEnum } from '@/shared/contracts/enums';
 
 export interface QuestionControls extends CardProperties {
   className?: string;
@@ -30,14 +28,17 @@ export interface QuestionControls extends CardProperties {
 export function FormDesignerControls(
   properties: React.PropsWithChildren<QuestionControls>,
 ): React.ReactNode {
-  const { handleToggleOffStateExceptFor } = usePanelsContext();
-  const { handleReadQuestion } = useFormKitService();
+  const { handleConfigureQuestionVariant, handleReadQuestion } =
+    useFormKitService();
   const { questionIdBeingEdited } = useFormKitStore((store) => store);
   const { fadeInDefault, fadeInTop } = useFadeAnimations();
-
   const { question, className, ...restProperties } = properties;
 
-  const readQuestionHandler = (): void => {
+  const handleConfigureVariant = () => {
+    handleConfigureQuestionVariant({ question });
+  };
+
+  const handleEditQuestion = () => {
     handleReadQuestion({ question });
   };
 
@@ -59,24 +60,19 @@ export function FormDesignerControls(
         <JustifySpaceBetween className={'w-full'}>
           <div>
             <Button
+              disabled
               variant={'outline'}
               size='xs'
               aria-label='Icon xs'
-              onClick={() => {
-                readQuestionHandler();
-                handleToggleOffStateExceptFor([
-                  PanelsViewsEnum.QUESTION_CONFIGURATION,
-                  PanelsViewsEnum.VARIANT_CONFIGURATION,
-                ]);
-              }}
+              onClick={handleConfigureVariant}
             >
               <GearIcon />
               Configure variant
             </Button>
           </div>
-          <div className={'space-x-1'}>
+          <div className={'inline-flex space-x-1'}>
             <Button
-              onClick={readQuestionHandler}
+              onClick={handleEditQuestion}
               variant={'outline'}
               size='xs'
               aria-label='Icon xs'

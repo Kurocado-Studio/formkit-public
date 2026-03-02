@@ -1,17 +1,15 @@
 import { composePaths } from '@kurocado-studio/formkit-ui-store';
+// eslint-disable-next-line import/named -- design-system package export
 import { DirectionEnum } from '@kurocado-studio/react-design-system';
 import {
-  Card,
   CardContent,
   HtmlForm,
-  Panel,
   PanelDrawer,
 } from '@kurocado-studio/shadcn-systemhaus-react';
 import { get } from 'lodash-es';
 import React from 'react';
 
 import { usePanelsContext } from '@/app/context/PanelsContext';
-import { VariantRenderer } from '@/domains/question/presentation/components/variants/VariantRenderer';
 import { JsonCardViewer } from '@/processes/form-designer/presentation/components/JsonCardViewer';
 import { useFormKitStore } from '@/processes/form-designer/state/useFormKitStore';
 import { PanelsViewsEnum } from '@/shared/contracts/enums';

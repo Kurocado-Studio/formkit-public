@@ -1,4 +1,9 @@
-import { DirectionEnum, useFadeIn } from '@kurocado-studio/react-design-system';
+import {
+  // eslint-disable-next-line import/named -- design-system package export
+  DirectionEnum,
+  // eslint-disable-next-line import/named -- design-system package export
+  useFadeIn,
+} from '@kurocado-studio/react-design-system';
 import {
   Button,
   Card,

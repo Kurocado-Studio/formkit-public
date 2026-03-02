@@ -1,4 +1,5 @@
 import { createQuestionUseCase } from '@kurocado-studio/formkit-ui-store';
+import { useCallback } from 'react';
 
 import type { UseCreateQuestion } from '@/domains/question/domain/types';
 import { useFormKitStoreApi } from '@/processes/form-designer/state/useFormKitStore';
@@ -13,13 +14,14 @@ export const useCreateQuestion: UseCreateQuestion = () => {
     axiosInstance: axiosFormKitInstance,
   });
 
-  const createQuestionHandler: typeof handleCreateQuestion = async (
-    payload,
-  ) => {
-    const question = await handleCreateQuestion(payload);
-    scrollToElement(question.id);
-    return question
-  };
+  const createQuestionHandler = useCallback(
+    async (payload: Parameters<typeof handleCreateQuestion>[0]) => {
+      const question = await handleCreateQuestion(payload);
+      scrollToElement(question.id);
+      return question;
+    },
+    [handleCreateQuestion],
+  );
 
   return { handleCreateQuestion: createQuestionHandler };
 };

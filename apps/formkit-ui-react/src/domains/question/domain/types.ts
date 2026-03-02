@@ -18,7 +18,8 @@ export type UseCreateQuestion = () => {
   handleCreateQuestion: (payload: QuestionCreatorPayload) => Promise<Question>;
 };
 
-export interface TextFieldNodeUpdaterSchema extends Record<string, unknown> {
+export interface TextFieldNodeUpdaterSchema
+  extends Record<string, string | null | undefined | unknown> {
   question: string;
 }
 

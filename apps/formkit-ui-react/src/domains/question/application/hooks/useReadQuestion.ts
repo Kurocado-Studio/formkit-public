@@ -1,4 +1,5 @@
 import { readQuestionUseCase } from '@kurocado-studio/formkit-ui-store';
+import { useCallback } from 'react';
 
 import { usePanelsContext } from '@/app/context/PanelsContext.tsx';
 import type { UseReadQuestion } from '@/domains/question/domain/types';
@@ -13,8 +14,10 @@ export const useReadQuestion: UseReadQuestion = () => {
     formikStore: formKitStoreApi,
   });
 
-  const readQuestionHandler: ReturnType<UseReadQuestion>['handleReadQuestion'] =
-    (payload) => {
+  const readQuestionHandler = useCallback(
+    (
+      payload: Parameters<ReturnType<UseReadQuestion>['handleReadQuestion']>[0],
+    ) => {
       handleReadQuestion(payload);
 
       const questionIdBeingEdited =
@@ -22,7 +25,9 @@ export const useReadQuestion: UseReadQuestion = () => {
 
       scrollToElement(questionIdBeingEdited);
       handleToggleOffStateExceptFor([PanelsViewsEnum.QUESTION_CONFIGURATION]);
-    };
+    },
+    [handleReadQuestion, formKitStoreApi, handleToggleOffStateExceptFor],
+  );
 
   return { handleReadQuestion: readQuestionHandler };
 };
