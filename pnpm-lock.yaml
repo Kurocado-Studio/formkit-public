@@ -142,14 +142,14 @@ importers:
         specifier: ^1.0.0
         version: 1.0.2(typescript@5.1.6)
       '@kurocado-studio/formkit-ui-models':
-        specifier: file:../../../formkit/packages/formkit-ui-models
-        version: file:../formkit/packages/formkit-ui-models
+        specifier: 1.0.1-develop.1
+        version: 1.0.1-develop.1
       '@kurocado-studio/formkit-ui-react-renderer':
         specifier: 1.0.1-develop.1
         version: 1.0.1-develop.1(react-dom@19.2.3(react@19.2.3))(tailwindcss@4.2.1)(typescript@5.1.6)
       '@kurocado-studio/formkit-ui-store':
-        specifier: file:../../../formkit/packages/formkit-ui-store
-        version: file:../formkit/packages/formkit-ui-store(@types/react@19.2.3)(react@19.2.3)(typescript@5.1.6)(use-sync-external-store@1.6.0(react@19.2.3))
+        specifier: 1.0.0-develop.2
+        version: 1.0.0-develop.2(@types/react@19.2.3)(react@19.2.3)(typescript@5.1.6)(use-sync-external-store@1.6.0(react@19.2.3))
       '@kurocado-studio/react-design-system':
         specifier: 1.0.0-develop.24
         version: 1.0.0-develop.24(react-dom@19.2.3(react@19.2.3))(tailwindcss@4.2.1)(typescript@5.1.6)
@@ -157,8 +157,8 @@ importers:
         specifier: 1.0.0-develop.1
         version: 1.0.0-develop.1
       '@kurocado-studio/shadcn-systemhaus-react':
-        specifier: file:../../../systemhaus/packages/shadcn-systemhaus-react
-        version: file:../systemhaus/packages/shadcn-systemhaus-react(@types/node@24.10.13)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(tailwindcss@4.2.1)(typescript@5.1.6)
+        specifier: 1.0.0-develop.3
+        version: 1.0.0-develop.3(@types/node@24.10.13)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(tailwindcss@4.2.1)(typescript@5.1.6)
       '@kurocado-studio/ui-react-research-and-development':
         specifier: 1.0.0-develop.17
         version: 1.0.0-develop.17(@vueuse/core@14.2.1(vue@3.5.29(typescript@5.1.6)))(react-dom@19.2.3(react@19.2.3))(tailwindcss@4.2.1)(vue@3.5.29(typescript@5.1.6))
@@ -1100,14 +1100,14 @@ packages:
   '@kurocado-studio/formkit-ui-models@1.0.0-develop.2':
     resolution: {integrity: sha512-px0UC51nLRR5dTvlXZzQOFSVZL46PzmQWN5Wji+4sQJ4NwkMxXgVHvScGrCWg82+9oKnqCkSK5j6g2VidJnHQg==}
 
-  '@kurocado-studio/formkit-ui-models@file:../formkit/packages/formkit-ui-models':
-    resolution: {directory: ../formkit/packages/formkit-ui-models, type: directory}
+  '@kurocado-studio/formkit-ui-models@1.0.1-develop.1':
+    resolution: {integrity: sha512-YIWJVJ6P3aQB5aKhcHLgrdqXaBLgebr4h/XBxazrqzAGM7LxI7BJmrPnRv0SO2o8plkReZ/Llp/TcCEbyi6rZw==}
 
   '@kurocado-studio/formkit-ui-react-renderer@1.0.1-develop.1':
     resolution: {integrity: sha512-F6rDE1ECtTbXLxVut3W6TGgfZos6Kpl65CdqsiRvkwncSuoej3Chh0gZJPea7LAY5v2KxK7SgdFZxtxwgWJlgQ==}
 
-  '@kurocado-studio/formkit-ui-store@file:../formkit/packages/formkit-ui-store':
-    resolution: {directory: ../formkit/packages/formkit-ui-store, type: directory}
+  '@kurocado-studio/formkit-ui-store@1.0.0-develop.2':
+    resolution: {integrity: sha512-ouEHyG/RgHJ84ElUNMo5GMnxiaMg+dfwEZrv4/XgQkKzusjlgzsxoTUrksx5rKxdRZFiXOWC227hFieGwk9ARQ==}
 
   '@kurocado-studio/html-forms@1.0.0':
     resolution: {integrity: sha512-gDOT43sblcpGunK56cQ4dqRDZYFlSp7tFgBw5Oozq+vwgReoqReK31biNAdwfwaXzfD2/hi8vrPJLsHRPk4gjA==}
@@ -1127,8 +1127,8 @@ packages:
   '@kurocado-studio/react-utils@1.0.0-develop.1':
     resolution: {integrity: sha512-9bCZt9DmQ4hJ5nxdd8WUaXJeoV/ePQCM8DZyz4tAe9NLwr37mfZHLY1dxtZ+uMppoh8JSgjz0qpPcap5sJAj1g==}
 
-  '@kurocado-studio/shadcn-systemhaus-react@file:../systemhaus/packages/shadcn-systemhaus-react':
-    resolution: {directory: ../systemhaus/packages/shadcn-systemhaus-react, type: directory}
+  '@kurocado-studio/shadcn-systemhaus-react@1.0.0-develop.3':
+    resolution: {integrity: sha512-1XZarut+lqZB3kyoeYaiUGqCNPHJ5I+IVpSZ83zyAlnPx7YHjSmDy3/vqClhE57IKFSRvRgswY/yg7cn/9fGyw==}
 
   '@kurocado-studio/styleguide@2.6.0-develop.17':
     resolution: {integrity: sha512-a+rR00+EGCmj1iS5wlMW9399YopER0nlSc0HsHuT+Z6vQise8jMMFiTQ2GtpYy/WzbGpHRbx3ZNgQa7SHI63Ug==}
@@ -10172,7 +10172,7 @@ snapshots:
     dependencies:
       uuid: 13.0.0
 
-  '@kurocado-studio/formkit-ui-models@file:../formkit/packages/formkit-ui-models':
+  '@kurocado-studio/formkit-ui-models@1.0.1-develop.1':
     dependencies:
       class-transformer: 0.5.1
       class-validator: 0.14.3
@@ -10194,7 +10194,7 @@ snapshots:
       - tailwindcss
       - typescript
 
-  '@kurocado-studio/formkit-ui-store@file:../formkit/packages/formkit-ui-store(@types/react@19.2.3)(react@19.2.3)(typescript@5.1.6)(use-sync-external-store@1.6.0(react@19.2.3))':
+  '@kurocado-studio/formkit-ui-store@1.0.0-develop.2(@types/react@19.2.3)(react@19.2.3)(typescript@5.1.6)(use-sync-external-store@1.6.0(react@19.2.3))':
     dependencies:
       '@kurocado-studio/axios-node': 1.0.0-develop.1(typescript@5.1.6)
       '@kurocado-studio/formkit-ui-models': 1.0.0-develop.2
@@ -10319,7 +10319,7 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@kurocado-studio/shadcn-systemhaus-react@file:../systemhaus/packages/shadcn-systemhaus-react(@types/node@24.10.13)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(tailwindcss@4.2.1)(typescript@5.1.6)':
+  '@kurocado-studio/shadcn-systemhaus-react@1.0.0-develop.3(@types/node@24.10.13)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(tailwindcss@4.2.1)(typescript@5.1.6)':
     dependencies:
       '@base-ui/react': 1.2.0(@types/react@19.2.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@fontsource-variable/geist': 5.2.8
