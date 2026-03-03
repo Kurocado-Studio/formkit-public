@@ -1,7 +1,7 @@
+ 
 import { type Question } from '@kurocado-studio/formkit-ui-models';
 import { composePaths } from '@kurocado-studio/formkit-ui-store';
 import {
-  // eslint-disable-next-line import/named -- design-system package export
   PolymorphicMotionElement,
   useFadeAnimations,
 } from '@kurocado-studio/react-design-system';

@@ -1,11 +1,8 @@
 import type { Form } from '@kurocado-studio/formkit-ui-models';
 import { EMPTY_FORM_NODE } from '@kurocado-studio/formkit-ui-store';
 import {
-  // eslint-disable-next-line import/named -- design-system package export
   DirectionEnum,
-  // eslint-disable-next-line import/named -- design-system package export
   PolymorphicMotionElement,
-  // eslint-disable-next-line import/named -- design-system package export
   useFadeIn,
 } from '@kurocado-studio/react-design-system';
 import {

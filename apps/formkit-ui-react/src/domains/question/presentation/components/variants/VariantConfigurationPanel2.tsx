@@ -1,5 +1,5 @@
+ 
 import { composePaths } from '@kurocado-studio/formkit-ui-store';
-// eslint-disable-next-line import/named -- design-system package export
 import { DirectionEnum } from '@kurocado-studio/react-design-system';
 import {
   CardContent,
