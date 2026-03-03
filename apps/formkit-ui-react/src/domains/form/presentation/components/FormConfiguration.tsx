@@ -38,6 +38,7 @@ export function FormNodeEditor(): React.ReactNode {
         key={`html-form-${payload.id}`}
         className={'space-y-4'}
         schema={formNodeFormSchema}
+        // @ts-expect-error while we sync modules
         defaultValue={payload}
         shouldValidate='onInput'
         shouldRevalidate='onInput'

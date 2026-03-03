@@ -12,7 +12,6 @@ import { FormRenderer } from '@/domains/form/presentation/components/FormRendere
 import { FormTitle } from '@/domains/form/presentation/components/FormTitle';
 import { QuestionCreators } from '@/domains/question/presentation/components/QuestionCreator';
 import { VariantConfigurationPanel } from '@/domains/question/presentation/components/variants/VariantConfigurationPanel';
-import { VariantConfigurationPanel2 } from '@/domains/question/presentation/components/variants/VariantConfigurationPanel2';
 import { useFormKitService } from '@/processes/form-designer/application/useFormKitService.ts';
 import { FormDesignerPanels } from '@/processes/form-designer/presentation/components/FormDesignerPanels.tsx';
 import {
@@ -51,7 +50,6 @@ export const FormDesigner = () => {
               <QuestionCreators />
             </FormDesignerSidebarCardContent>
           </FormDesignerSidebar>
-          <VariantConfigurationPanel2 />
         </TwoColumns>
         <TwelveColumns
           className={'relative z-10 min-h-8 overflow-auto pt-4 lg:col-span-7'}

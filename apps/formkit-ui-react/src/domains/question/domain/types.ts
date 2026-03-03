@@ -12,6 +12,8 @@ export type UseReadQuestion = () => {
 export interface QuestionCreatorPayload {
   question: QuestionCreatorDto;
   variant: VariantCreatorDto;
+  formId: string;
+  sectionId: string;
 }
 
 export type UseCreateQuestion = () => {

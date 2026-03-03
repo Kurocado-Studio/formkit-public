@@ -19,11 +19,7 @@ import { PanelsViewsEnum } from '@/shared/contracts/enums';
 
 const { VARIANT_CONFIGURATION } = PanelsViewsEnum;
 
-export const VariantConfigurationPanel = ({
-  componentRef,
-}: {
-  componentRef?: React.RefObject<HTMLElement | null>;
-}) => {
+export const VariantConfigurationPanel = () => {
   const { handlePanelsState, panelsState } = usePanelsContext();
   const formKitStore = useFormKitStore((state) => state);
   const { toCurrentQuestion } = composePaths(formKitStore);
@@ -32,7 +28,6 @@ export const VariantConfigurationPanel = ({
     <Panel
       title={''}
       size={'7xl'}
-      containerRef={componentRef}
       triggerPanel={() => handlePanelsState({ VARIANT_CONFIGURATION: false })}
       isOpen={panelsState[VARIANT_CONFIGURATION]}
       onEnterDirection={DirectionEnum.LEFT}
@@ -53,11 +48,6 @@ export const VariantConfigurationPanel = ({
             </Card>
           </CardContent>
         </Card>
-        <CardContent>
-          <JsonCardViewer
-            payload={get(formKitStore.formsNodeTree, toCurrentQuestion)}
-          />
-        </CardContent>
         <CardContent>
           <JsonCardViewer
             payload={get(formKitStore.formsNodeTree, toCurrentQuestion)}

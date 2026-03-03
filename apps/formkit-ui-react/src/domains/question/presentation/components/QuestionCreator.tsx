@@ -75,7 +75,7 @@ export function SingleLineQuestionCreator(): React.ReactNode {
 
   const handleCreateTextFieldQuestion = () => {
     const variant = VariantEnum.TEXT;
-    const payload = TextFieldQuestionCreatorDto.toInstance({
+    const questionData = TextFieldQuestionCreatorDto.toInstance({
       question: { name, question, variant, hidden, required },
       variant: {
         variantType: variant,
@@ -84,6 +84,13 @@ export function SingleLineQuestionCreator(): React.ReactNode {
         },
       },
     });
+
+    const payload = {
+      question: questionData.question,
+      variant: questionData.variant,
+      formId: store.formIdBeingEdited ?? '',
+      sectionId: store.sectionIdBeingEdited ?? '',
+    };
     handleCreateQuestion(payload).then();
   };
 
