@@ -5,6 +5,7 @@ import { vi } from 'vitest';
 
 import { useFormKitService } from '@/processes/form-designer/application/useFormKitService';
 import { useFormKitStore } from '@/processes/form-designer/state/useFormKitStore';
+
 import { FormNodeEditor } from './FormConfiguration';
 
 const { render, screen } = ReactTestingLibrary;

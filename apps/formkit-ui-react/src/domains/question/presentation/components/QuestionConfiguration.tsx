@@ -1,10 +1,15 @@
 import { type Question } from '@kurocado-studio/formkit-ui-models';
+import { composePaths } from '@kurocado-studio/formkit-ui-store';
 import {
-  AnimateMotionPresence,
   PolymorphicMotionElement,
   useFadeAnimations,
 } from '@kurocado-studio/react-design-system';
 import {
+  Button,
+  Card,
+  CardContent,
+  CardFooter,
+  GearIcon,
   HtmlForm,
   InputTextField,
 } from '@kurocado-studio/shadcn-systemhaus-react';
@@ -19,60 +24,51 @@ import { useFormKitStore } from '@/processes/form-designer/state/useFormKitStore
 
 export function QuestionConfiguration(): React.ReactNode {
   const formsNodeTree = useFormKitStore((state) => state.formsNodeTree);
-  const formIdBeingEdited = useFormKitStore((state) => state.formIdBeingEdited);
-  const sectionIdBeingEdited = useFormKitStore(
-    (state) => state.sectionIdBeingEdited,
-  );
-  const questionIdBeingEdited = useFormKitStore(
-    (state) => state.questionIdBeingEdited,
-  );
-  const { handleUpdateQuestion } = useFormKitService();
-  const {  fadeInDefault } = useFadeAnimations();
-
-  const toQuestions = React.useMemo(() => {
-    if (!formIdBeingEdited || !sectionIdBeingEdited) return;
-    return [formIdBeingEdited, 'sections', sectionIdBeingEdited, 'questions'];
-  }, [formIdBeingEdited, sectionIdBeingEdited]);
-  const toCurrentQuestion = React.useMemo(() => {
-    if (!toQuestions || !questionIdBeingEdited) return;
-    return [...toQuestions, questionIdBeingEdited];
-  }, [questionIdBeingEdited, toQuestions]);
+  const state = useFormKitStore((state) => state);
+  const { toCurrentQuestion } = composePaths(state);
+  const { handleUpdateQuestion, handleConfigureQuestionVariant } =
+    useFormKitService();
+  const { fadeInDefault } = useFadeAnimations();
 
   const questionBeingEdited: Question = get(
     formsNodeTree,
     toCurrentQuestion,
     {},
   );
-  const questionMap = get(formsNodeTree, toQuestions, {});
-
-  const [isAnimationReady, setIsAnimationReady] = React.useState(false);
-
-  const [defaultValue, setDefaultValue] = React.useState({
-    id: '',
-    question: '',
-  });
-
-
+  const handleConfigureVariant = () => {
+    handleConfigureQuestionVariant({ question: questionBeingEdited });
+  };
   return (
-    <PolymorphicMotionElement {...fadeInDefault.initial}>
-      <HtmlForm<TextFieldNodeUpdaterSchema>
-        schema={textFieldNodeFormSchema}
-        id={defaultValue.id}
-        key={defaultValue.id}
-        className={'space-y-4'}
-        defaultValue={isAnimationReady ? defaultValue : questionBeingEdited}
-        shouldValidate='onInput'
-        shouldRevalidate='onInput'
-        onSuccess={(updatedQuestion: TextFieldNodeUpdaterSchema) => {
-          handleUpdateQuestion({
-            updatedQuestionProperties: updatedQuestion,
-          });
-        }}
-      >
-        <InputTextField name='id' disabled label='Question Id' />
-        <InputTextField name='question' label='Question' />
-      </HtmlForm>
-      <JsonCardViewer payload={questionMap[defaultValue.id]} />
+    <PolymorphicMotionElement className='space-y-2'>
+      <Card {...fadeInDefault.initial}>
+        <CardContent>
+          <HtmlForm<TextFieldNodeUpdaterSchema>
+            schema={textFieldNodeFormSchema}
+            id={questionBeingEdited.id}
+            key={questionBeingEdited.id}
+            className={'space-y-4'}
+            // @ts-expect-error while we sync modules
+            defaultValue={questionBeingEdited}
+            shouldValidate='onInput'
+            shouldRevalidate='onInput'
+            onSuccess={(updatedQuestion: TextFieldNodeUpdaterSchema) => {
+              handleUpdateQuestion({
+                updatedQuestionProperties: updatedQuestion,
+              });
+            }}
+          >
+            <InputTextField name='id' disabled label='Question Id' />
+            <InputTextField name='question' label='Question' />
+          </HtmlForm>
+        </CardContent>
+        <CardFooter>
+          <Button disabled onClick={handleConfigureVariant}>
+            <GearIcon />
+            Configure variant
+          </Button>
+        </CardFooter>
+      </Card>
+      <JsonCardViewer payload={questionBeingEdited} />
     </PolymorphicMotionElement>
   );
 }

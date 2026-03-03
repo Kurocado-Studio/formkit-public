@@ -9,13 +9,14 @@ declare module '*.jpg' {
   export default value;
 }
 
-declare module '*.css?url' {
-  const url: string;
-  export default url;
-}
 declare module '*.jpeg' {
   const value: string;
   export default value;
+}
+
+declare module '*.css?url' {
+  const url: string;
+  export default url;
 }
 
 declare module '*.gif' {

@@ -1,4 +1,5 @@
 import { readFormUseCase } from '@kurocado-studio/formkit-ui-store';
+import { useCallback } from 'react';
 
 import { usePanelsContext } from '@/app/context/PanelsContext';
 import type { UseReadForm } from '@/domains/form/domain/types';
@@ -24,14 +25,22 @@ export const useReadForm: UseReadForm = () => {
     formikStore: formKitStoreApi,
   });
 
-  const executeReadForm: ReturnType<UseReadForm>['handleReadForm'] = async (
-    payload,
-  ) => {
-    handleReadForm(payload);
-    handleSetQuestionToBeEdited({ id: undefined });
-    handleSetFormBeingEdited({ id: payload.id });
-    handleToggleOffStateExceptFor([FORM_CONFIGURATION]);
-  };
+  const executeReadForm = useCallback(
+    async (
+      payload: Parameters<ReturnType<UseReadForm>['handleReadForm']>[0],
+    ) => {
+      handleReadForm(payload);
+      handleSetQuestionToBeEdited({ id: undefined });
+      handleSetFormBeingEdited({ id: payload.id });
+      handleToggleOffStateExceptFor([FORM_CONFIGURATION]);
+    },
+    [
+      handleReadForm,
+      handleSetQuestionToBeEdited,
+      handleSetFormBeingEdited,
+      handleToggleOffStateExceptFor,
+    ],
+  );
 
   return { handleReadForm: executeReadForm };
 };

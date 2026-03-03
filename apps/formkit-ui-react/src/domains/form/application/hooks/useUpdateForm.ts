@@ -1,14 +1,13 @@
 import { updateFormUseCase } from '@kurocado-studio/formkit-ui-store';
 
 import type { UseUpdateForm } from '@/domains/form/domain/types';
-import { useFormKitStore } from '@/processes/form-designer/state/useFormKitStore';
+import { useFormKitStoreApi } from '@/processes/form-designer/state/useFormKitStore';
 
 export const useUpdateForm: UseUpdateForm = () => {
-  const { formsNodeTree, composePaths, handleUpdateFormsNodeTree } =
-    useFormKitStore();
+  const formKitStoreApi = useFormKitStoreApi();
 
   const { handleUpdateForm } = updateFormUseCase({
-    formikStore: { formsNodeTree, composePaths, handleUpdateFormsNodeTree },
+    formikStore: formKitStoreApi,
   });
 
   const executeUpdateForm: ReturnType<UseUpdateForm>['handleUpdateForm'] =

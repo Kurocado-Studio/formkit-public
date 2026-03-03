@@ -5,9 +5,9 @@ import {
 import React from 'react';
 import { type StoreApi, useStore } from 'zustand';
 
-const FormKitStoreContext = React.createContext<StoreApi<FormKitStore> | null>(
-  null,
-);
+const FormKitStoreContext = React.createContext<
+  StoreApi<FormKitStore> | undefined
+>(undefined);
 
 type FormKitStoreProviderProperties = React.PropsWithChildren<{
   storeApi?: StoreApi<FormKitStore>;

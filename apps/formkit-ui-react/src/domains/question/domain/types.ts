@@ -12,13 +12,16 @@ export type UseReadQuestion = () => {
 export interface QuestionCreatorPayload {
   question: QuestionCreatorDto;
   variant: VariantCreatorDto;
+  formId: string;
+  sectionId: string;
 }
 
 export type UseCreateQuestion = () => {
   handleCreateQuestion: (payload: QuestionCreatorPayload) => Promise<Question>;
 };
 
-export interface TextFieldNodeUpdaterSchema extends Record<string, unknown> {
+export interface TextFieldNodeUpdaterSchema
+  extends Record<string, string | null | undefined | unknown> {
   question: string;
 }
 

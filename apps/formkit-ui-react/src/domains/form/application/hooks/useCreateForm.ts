@@ -18,7 +18,6 @@ export const useCreateForm: UseCreateForm = () => {
     useCallback(() => {
       handleCreateForm();
       const { formIdBeingEdited } = formKitStoreApi.getState();
-      if (!formIdBeingEdited) return;
 
       handleReadForm({ id: formIdBeingEdited });
     }, [handleReadForm, formKitStoreApi, handleCreateForm]);

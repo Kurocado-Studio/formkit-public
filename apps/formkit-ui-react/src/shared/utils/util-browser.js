@@ -5,7 +5,11 @@
 
 function format(f, ...args) {
   if (typeof f !== 'string') {
-    return [f, ...args].map((x) => (typeof x === 'object' && x !== null ? inspect(x) : String(x))).join(' ');
+    return [f, ...args]
+      .map((x) =>
+        typeof x === 'object' && x !== null ? inspect(x) : String(x),
+      )
+      .join(' ');
   }
   let i = 0;
   return String(f).replace(/%[sdj%]/g, (x) => {
@@ -54,7 +58,10 @@ function callbackify(fn) {
   return function (...args) {
     const cb = args.pop();
     if (typeof cb !== 'function') throw new TypeError('callback required');
-    fn(...args).then((v) => cb(null, v), (e) => cb(e));
+    fn(...args).then(
+      (v) => cb(null, v),
+      (e) => cb(e),
+    );
   };
 }
 
@@ -66,12 +73,18 @@ function inherits(ctor, superCtor) {
   if (superCtor == null) throw new TypeError('superCtor is null');
   ctor.super_ = superCtor;
   ctor.prototype = Object.create(superCtor.prototype, {
-    constructor: { value: ctor, enumerable: false, writable: true, configurable: true },
+    constructor: {
+      value: ctor,
+      enumerable: false,
+      writable: true,
+      configurable: true,
+    },
   });
 }
 
 const types = {
-  isArrayBuffer: (v) => Object.prototype.toString.call(v) === '[object ArrayBuffer]',
+  isArrayBuffer: (v) =>
+    Object.prototype.toString.call(v) === '[object ArrayBuffer]',
   isDate: (v) => v instanceof Date,
   isMap: (v) => typeof Map !== 'undefined' && v instanceof Map,
   isRegExp: (v) => v instanceof RegExp,

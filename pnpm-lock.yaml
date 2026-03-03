@@ -21,9 +21,6 @@ importers:
       '@flydotio/dockerfile':
         specifier: ^0.7.10
         version: 0.7.10(@types/node@24.10.13)
-      '@internal/config':
-        specifier: workspace:*
-        version: link:internal/config
       '@kurocado-studio/qa':
         specifier: 2.0.0-alpha.2
         version: 2.0.0-alpha.2(@swc/core@1.15.13(@swc/helpers@0.5.19))(@testing-library/dom@10.4.1)(@types/debug@4.1.12)(@types/react@19.2.3)(@vitest/browser@3.2.4)(@vue/compiler-sfc@3.5.29)(eslint@9.31.0(jiti@2.6.1))(lightningcss@1.31.1)(msw@2.12.10(@types/node@24.10.13)(typescript@5.1.6))(optionator@0.9.4)(prettier@3.6.2)(react@19.2.3)(rollup@4.52.0)(vite@5.2.8(@types/node@24.10.13)(lightningcss@1.31.1))(vitest-axe@0.1.0(vitest@3.2.4))
@@ -87,6 +84,9 @@ importers:
       lint-staged:
         specifier: ^16.1.6
         version: 16.2.7
+      playwright:
+        specifier: ^1.58.2
+        version: 1.58.2
       postcss:
         specifier: ^8.5.3
         version: 8.5.6
@@ -151,8 +151,8 @@ importers:
         specifier: 1.0.1-develop.1
         version: 1.0.1-develop.1(react-dom@19.2.3(react@19.2.3))(tailwindcss@4.2.1)(typescript@5.1.6)
       '@kurocado-studio/formkit-ui-store':
-        specifier: 1.0.0-develop.1
-        version: 1.0.0-develop.1(@types/react@19.2.3)(react@19.2.3)(typescript@5.1.6)(use-sync-external-store@1.6.0(react@19.2.3))
+        specifier: 1.0.0-develop.2
+        version: 1.0.0-develop.2(@types/react@19.2.3)(react@19.2.3)(typescript@5.1.6)(use-sync-external-store@1.6.0(react@19.2.3))
       '@kurocado-studio/react-design-system':
         specifier: 1.0.0-develop.24
         version: 1.0.0-develop.24(react-dom@19.2.3(react@19.2.3))(tailwindcss@4.2.1)(typescript@5.1.6)
@@ -160,8 +160,8 @@ importers:
         specifier: 1.0.0-develop.1
         version: 1.0.0-develop.1
       '@kurocado-studio/shadcn-systemhaus-react':
-        specifier: 1.0.0-develop.2
-        version: 1.0.0-develop.2(@types/node@24.10.13)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(tailwindcss@4.2.1)(typescript@5.1.6)
+        specifier: 1.0.0-develop.3
+        version: 1.0.0-develop.3(@types/node@24.10.13)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(tailwindcss@4.2.1)(typescript@5.1.6)
       '@kurocado-studio/ui-react-research-and-development':
         specifier: 1.0.0-develop.17
         version: 1.0.0-develop.17(@vueuse/core@14.2.1(vue@3.5.29(typescript@5.1.6)))(react-dom@19.2.3(react@19.2.3))(tailwindcss@4.2.1)(vue@3.5.29(typescript@5.1.6))
@@ -226,17 +226,12 @@ importers:
       eslint-plugin-storybook:
         specifier: ^10.2.10
         version: 10.2.12(eslint@9.31.0(jiti@2.6.1))(storybook@10.2.12(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.1.6)
-      playwright:
-        specifier: ^1.58.2
-        version: 1.58.2
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
       storybook:
         specifier: ^10.2.10
         version: 10.2.12(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-
-  internal/config: {}
 
 packages:
 
@@ -1111,8 +1106,8 @@ packages:
   '@kurocado-studio/formkit-ui-react-renderer@1.0.1-develop.1':
     resolution: {integrity: sha512-F6rDE1ECtTbXLxVut3W6TGgfZos6Kpl65CdqsiRvkwncSuoej3Chh0gZJPea7LAY5v2KxK7SgdFZxtxwgWJlgQ==}
 
-  '@kurocado-studio/formkit-ui-store@1.0.0-develop.1':
-    resolution: {integrity: sha512-U8vUhqAWTPfgzYhT5MyGHz1viiRkq5bzu5rRlaUA3yTjh+UXYaIR868y1DyRTfV6f++HPvHapf6i1pZt8f/ijg==}
+  '@kurocado-studio/formkit-ui-store@1.0.0-develop.2':
+    resolution: {integrity: sha512-ouEHyG/RgHJ84ElUNMo5GMnxiaMg+dfwEZrv4/XgQkKzusjlgzsxoTUrksx5rKxdRZFiXOWC227hFieGwk9ARQ==}
 
   '@kurocado-studio/html-forms@1.0.0':
     resolution: {integrity: sha512-gDOT43sblcpGunK56cQ4dqRDZYFlSp7tFgBw5Oozq+vwgReoqReK31biNAdwfwaXzfD2/hi8vrPJLsHRPk4gjA==}
@@ -1132,8 +1127,8 @@ packages:
   '@kurocado-studio/react-utils@1.0.0-develop.1':
     resolution: {integrity: sha512-9bCZt9DmQ4hJ5nxdd8WUaXJeoV/ePQCM8DZyz4tAe9NLwr37mfZHLY1dxtZ+uMppoh8JSgjz0qpPcap5sJAj1g==}
 
-  '@kurocado-studio/shadcn-systemhaus-react@1.0.0-develop.2':
-    resolution: {integrity: sha512-IgVmy9vcYI33g1BJVSFBpkjM62hRBBaAdUv/rkki620wX1XUkPWRjOSV2fgdKcMTN7Pao8BeRL5cv5sum025MA==}
+  '@kurocado-studio/shadcn-systemhaus-react@1.0.0-develop.3':
+    resolution: {integrity: sha512-1XZarut+lqZB3kyoeYaiUGqCNPHJ5I+IVpSZ83zyAlnPx7YHjSmDy3/vqClhE57IKFSRvRgswY/yg7cn/9fGyw==}
 
   '@kurocado-studio/styleguide@2.6.0-develop.17':
     resolution: {integrity: sha512-a+rR00+EGCmj1iS5wlMW9399YopER0nlSc0HsHuT+Z6vQise8jMMFiTQ2GtpYy/WzbGpHRbx3ZNgQa7SHI63Ug==}
@@ -10199,7 +10194,7 @@ snapshots:
       - tailwindcss
       - typescript
 
-  '@kurocado-studio/formkit-ui-store@1.0.0-develop.1(@types/react@19.2.3)(react@19.2.3)(typescript@5.1.6)(use-sync-external-store@1.6.0(react@19.2.3))':
+  '@kurocado-studio/formkit-ui-store@1.0.0-develop.2(@types/react@19.2.3)(react@19.2.3)(typescript@5.1.6)(use-sync-external-store@1.6.0(react@19.2.3))':
     dependencies:
       '@kurocado-studio/axios-node': 1.0.0-develop.1(typescript@5.1.6)
       '@kurocado-studio/formkit-ui-models': 1.0.0-develop.2
@@ -10324,7 +10319,7 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@kurocado-studio/shadcn-systemhaus-react@1.0.0-develop.2(@types/node@24.10.13)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(tailwindcss@4.2.1)(typescript@5.1.6)':
+  '@kurocado-studio/shadcn-systemhaus-react@1.0.0-develop.3(@types/node@24.10.13)(@types/react-dom@19.2.3(@types/react@19.2.3))(@types/react@19.2.3)(tailwindcss@4.2.1)(typescript@5.1.6)':
     dependencies:
       '@base-ui/react': 1.2.0(@types/react@19.2.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@fontsource-variable/geist': 5.2.8

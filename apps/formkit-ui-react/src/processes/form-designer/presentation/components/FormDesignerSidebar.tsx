@@ -1,4 +1,5 @@
 import { Card } from '@kurocado-studio/shadcn-systemhaus-react';
+import React from 'react';
 
 export const FormDesignerSidebar: typeof Card = (properties) => {
   return <Card {...properties} className={`h-full ${properties.className}`} />;

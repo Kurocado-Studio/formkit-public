@@ -9,7 +9,7 @@ describe('useFormKitStore', () => {
   it('should expose primitive store state without derived helpers', () => {
     const { result } = renderHook(() => useFormKitStore(), {
       wrapper: ({ children }: React.PropsWithChildren) =>
-        React.createElement(FormKitStoreProvider, null, children),
+        React.createElement(FormKitStoreProvider, undefined, children),
     });
 
     expect(result.current.getFormByIdState.isLoading).toBe(false);
