@@ -1,17 +1,3 @@
-You did mention the Vue renderer in the case study (“Vue renderer powered by the same domain layer”
-in _What’s Next_), but it’s framed as **planned**, not shipped. That’s the correct posture. Do
-**not** imply parity until it exists.
-
-What you want in the README is:
-
-- clear system positioning
-- honest renderer status
-- strong architectural signal
-- easy “how to run” for reviewers
-- visible cross-framework intent (without overpromising)
-
-Below is a **production-ready README** you can drop into the repo.
-
 # FormKit
 
 Schema-driven form infrastructure that separates form creation from form rendering.
