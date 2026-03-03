@@ -1,8 +1,4 @@
- 
-import {
-  DirectionEnum,
-  useFadeIn,
-} from '@kurocado-studio/react-design-system';
+import { DirectionEnum, useFadeIn } from '@kurocado-studio/react-design-system';
 import {
   Button,
   Card,
