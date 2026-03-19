@@ -22,7 +22,10 @@ import {
 } from '@/shared/config/constants';
 
 const handleReadCaseStudy = (): void => {
-  globalThis.open('https://www.kurocado.studio/case-studies/formkit', '_blank');
+  globalThis.open(
+    'https://www.kurocado.studio/selected-work/formkit',
+    '_blank',
+  );
 };
 const handleSeeMonorepo = (): void => {
   globalThis.open(
