@@ -79,9 +79,7 @@ export function SingleLineQuestionCreator(): React.ReactNode {
       question: { name, question, variant, hidden, required },
       variant: {
         variantType: variant,
-        variantPayload: {
-          name,
-        },
+        variantPayload: {},
       },
     });
 
@@ -100,7 +98,7 @@ export function SingleLineQuestionCreator(): React.ReactNode {
         <TextboxIcon />
         Single choice
       </QuestionCreatorTitle>
-      <div>
+      <section>
         <QuestionCreatorButton onClick={handleCreateTextFieldQuestion}>
           <TextTIcon />
           <span>Text</span>
@@ -114,18 +112,18 @@ export function SingleLineQuestionCreator(): React.ReactNode {
           Phone
         </QuestionCreatorButton>
         <QuestionCreatorButton {...comingSoonProperties}>
-          <CircleIcon />
-          Radio
-        </QuestionCreatorButton>
-        <QuestionCreatorButton {...comingSoonProperties}>
           <PasswordIcon />
           Password
+        </QuestionCreatorButton>
+        <QuestionCreatorButton {...comingSoonProperties}>
+          <CircleIcon />
+          Radio
         </QuestionCreatorButton>
         <QuestionCreatorButton {...comingSoonProperties}>
           <ToggleRightIcon />
           Yes/No
         </QuestionCreatorButton>
-      </div>
+      </section>
     </article>
   );
 }

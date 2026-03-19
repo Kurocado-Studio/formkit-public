@@ -60,7 +60,6 @@ export function FormDesignerControls(
         <JustifySpaceBetween className={'w-full'}>
           <div>
             <Button
-              disabled
               variant={'outline'}
               size='xs'
               aria-label='Icon xs'
