@@ -2,6 +2,7 @@ import type {
   Question,
   QuestionCreatorDto,
   VariantCreatorDto,
+  VariantEnum,
 } from '@kurocado-studio/formkit-ui-models';
 import type { ZodTypeAny } from 'zod';
 
@@ -25,12 +26,16 @@ export interface TextFieldNodeUpdaterSchema
   question: string;
 }
 
-export type TextFieldNodeUpdaterSchemaShape = {
+export type QuestionNodeUpdaterSchema = {
   [K in keyof TextFieldNodeUpdaterSchema]: ZodTypeAny;
+};
+
+export type TextFieldVariantUpdaterSchema = {
+  [K in keyof Question['variants'][VariantEnum.TEXT]]: ZodTypeAny;
 };
 
 export type UseUpdateQuestion = () => {
   handleUpdateQuestion: (payload: {
-    updatedQuestionProperties: TextFieldNodeUpdaterSchema;
+    updatedQuestionProperties: QuestionNodeUpdaterSchema;
   }) => void;
 };

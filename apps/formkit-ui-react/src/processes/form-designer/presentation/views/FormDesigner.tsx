@@ -1,5 +1,6 @@
 import { useFadeAnimations } from '@kurocado-studio/react-design-system';
 import {
+  FourColumns,
   Grid,
   ThreeColumns,
   TwelveColumns,

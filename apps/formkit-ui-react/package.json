@@ -32,7 +32,9 @@
     "local:setup": "pnpm clean && pnpm systemhaus:setup && pnpm formkit:store:setup && pnpm formkit:models:setup && pnpm i"
   },
   "lint-staged": {
-    "*": ["pnpm run prettier-fix"],
+    "*": [
+      "pnpm run prettier-fix"
+    ],
     "**/*.{ts,tsx}": [
       "pnpm run prettier-fix",
       "pnpm run eslint-fix",
@@ -44,9 +46,9 @@
     "@conform-to/react": "^1.10.1",
     "@conform-to/zod": "^1.9.0",
     "@kurocado-studio/axios-react": "^1.0.0",
-    "@kurocado-studio/formkit-ui-models": "1.0.1-develop.1",
+    "@kurocado-studio/formkit-ui-models": "file:../../../formkit/packages/formkit-ui-models",
     "@kurocado-studio/formkit-ui-react-renderer": "1.0.1-develop.1",
-    "@kurocado-studio/formkit-ui-store": "1.0.0-develop.2",
+    "@kurocado-studio/formkit-ui-store": "file:../../../formkit/packages/formkit-ui-store",
     "@kurocado-studio/react-design-system": "1.0.0-develop.24",
     "@kurocado-studio/react-utils": "1.0.0-develop.1",
     "@kurocado-studio/shadcn-systemhaus-react": "1.0.0-develop.3",
@@ -68,7 +70,9 @@
     "node": ">=20"
   },
   "eslintConfig": {
-    "extends": ["plugin:storybook/recommended"]
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.0.1",
