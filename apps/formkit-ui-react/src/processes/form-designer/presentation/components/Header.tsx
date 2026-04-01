@@ -23,7 +23,7 @@ import {
 
 const handleReadCaseStudy = (): void => {
   globalThis.open(
-    'https://www.kurocado.studio/selected-work/formkit',
+    'https://kurocado-studio.atlassian.net/wiki/spaces/FormKit/overview',
     '_blank',
   );
 };
@@ -64,7 +64,7 @@ export function Header(): React.ReactNode {
             />
             <div className={'inline-flex space-x-1'}>
               <Button variant='outline' onClick={handleReadCaseStudy}>
-                Case study
+                Confluence
               </Button>
               <Button variant='outline' onClick={handleSeeMonorepo}>
                 GitHub monorepo
